@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <h1>Hello</h1>
+
+        <!-- <div id="icy">
+            <p id="change-num">0</p>
+        </div>
+        <button onclick="clickfunc()">Aloha</button>
+        <hr> -->
+        <!-- <p id="align-C">Hello!</p>
+        <button onclick="clickMe()"> Click Me!</button>
+        <p>HELLO</p>
+        <p id="namee">hi</p>-->
+        <p id="align-C">0</p>
+        <button id="icy-btn" onclick="clickBtn()">+</button>
+        <button id="save-btn" onclick="saveBtn()">Save</button>
+        <p id="saves">-</p>
+        <br />
+        <hr />
+        <br />
+        <button id="error-btn" onclick="errorBtn()">ERROR!</button>
+        <p id="error-msg">- - -<!-- error message --></p>
+        <br />
+        <hr />
+        <br />
+        <span id="numl-el"></span>
+        <span id="el"></span>
+        <span id="num2-el"></span>
+        <button onclick="calcBtn1()" id="btn-1">+</button>
+        <button onclick="calcBtn2()" id="btn-2">-</button>
+        <button onclick="calcBtn3()" id="btn-3">/</button>
+        <button onclick="calcBtn4()" id="btn-4">*</button>
+        <span>Result : </span>
+        <span id="calc-res">--</span>
+        <br />
+        <hr />
+        <br />
+        <div id="for-loop"></div>
+        <br />
+        <hr />
+        <br />
+        <div id="tas-output">-</div>
+        <button id="tas-btn" onclick="rollTas()">Roll Dice</button>
+        <br />
+        <hr />
+        <br />
+        <div id="stdnt">
+            <div>name:</div>
+            <div id="name-el">Ali</div>
+            <div>last name:</div>
+            <div id="last-el">Sadeghi</div>
+            <div>age:</div>
+            <div id="age-el" class="style-class">21</div>
+            <div>color:</div>
+            <div id="color-el">Blue</div>
+            <div>male:</div>
+            <div id="male-el">True</div>
+        </div>
+        <div id="nav-stdnt">
+            <button id="lt-btn" onclick="ltBtn()">&lt&lt</button>
+            <div id="counter-el">.: 1 :.</div>
+            <button id="gt-btn" onclick="gtBtn()">&gt&gt</button>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <div id="click-box">Click Me!</div>
+        <br />
+        <hr />
+        <br />
+        <div id="too-much-box"></div>
+        <br />
+        <p>it doesn't work :(</p>
+        <br />
+        <hr />
+        <br />
+        <p id="date-el"></p>
+        <br />
+        <hr />
+        <br />
+        <p
+            id="control-btn"
+            onclick="cntrlClick()"
+            onmouseover="cntrlHover()"
+            onmouseout="cntrlMouseOut()"
+        >
+            onload
+        </p>
+        <br />
+        <br />
+        <hr />
+        <br />
+        <div id="div-div">
+            <div id="div-str0"></div>
+            <div id="div-str1"></div>
+            <div id="div-str2"></div>
+            <div id="div-str3"></div>
+        </div>
+        <br />
+        <input type="number" id="start-str" onclick="strFunc()" />
+        <p id="p-str">==></p>
+        <input type="number" id="end-str" onclick="strFunc()" />
+        <button id="btn-str">Delete inputs</button>
+        <br />
+        <br />
+        <hr />
+        <!-- <p id="rand-finder">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore magni soluta quo et nisi dolores velit accusantium, odit sunt exercitationem quia voluptatem et perferendis consequatur facere dignissimos eum, iste aliquam tenetur.</p> -->
+        <br />
+        <p id="infinity-p"></p>
+        <br />
+        <hr />
+        <br />
+        <p>sort array - forEach :</p>
+        <p id="sort-arr"></p>
+        <br />
+        <hr />
+        <br />
+        <p id="show-num">- - -</p>
+        <div id="add-sort-btn">
+            <button id="add-btn">Add random number</button>
+            <button id="sort-btn">Sort numbers</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+        <p id="sort-nums">- - -</p>
+        <br />
+        <hr />
+        <br />
+        <p id="B-day"></p>
+        <div id="born-counter"></div>
+        <br />
+        <hr />
+        <br />
+        <a
+            href="javascript:void(0);"
+            style="font-family: sans-serif; letter-spacing: 2px"
+            >&lta href="javascript:void(0);"&gt</a
+        >
+        <br />
+        <br />
+        <hr />
+        <br />
+        <p>Enter numbers between 5 and 10 :</p>
+        <div id="inliner">
+            <input type="text" id="err-input" onfocus="this.value=''" />
+            <button id="err-btn" onclick="errFunc()">Test input</button>
+        </div>
+        <p id="err-shower">Erorrs dont work...</p>
+        <br />
+        <hr />
+        <br />
+        <p id="hover-changer" title="you can't see me!">Hover me!</p>
+        <br />
+        <hr />
+        <br />
+        <p>Enter numbers between 5 and 10 :</p>
+        <div id="inliner">
+            <input type="text" id="err2-input" onfocus="this.value=''" />
+            <button id="err2-btn">Test input</button>
+        </div>
+        <p id="err2-shower">- - -</p>
+        <br />
+        <hr />
+        <br />
+        <p id="change-color">Hello my color is</p>
+        <br />
+        <div id="inliner">
+            <button id="change-color-btn">Red or Blue</button>
+            <button id="random-color-btn">Random color</button>
+        </div>
+        <br />
+        <hr />
+        <div id="inliner-p">
+            <div>
+                <p>top score :</p>
+                <p id="top-score">00</p>
+            </div>
+            <div>
+                <p>your score :</p>
+                <p id="score">0</p>
+            </div>
+        </div>
+        <div id="football-base">
+            <div id="football-ball"></div>
+            <div id="end-time">Time is up!</div>
+        </div>
+        <div id="timer-base">
+            <div id="timer"></div>
+        </div>
+        <div id="football-btns">
+            <button>Temp reset</button>
+            <button>Play again</button>
+            <button>Show high records</button>
+        </div>
+        <div id="high-records"></div>
+        <br />
+        <hr />
+        <br />
+        <p id="obj-tester"></p>
+        <br />
+        <hr />
+        <br />
+        <script src="./index.js"></script>
+    </body>
+</html>

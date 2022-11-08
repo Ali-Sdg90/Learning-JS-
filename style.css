@@ -1,0 +1,280 @@
+* {
+    font-size: 30px;
+    text-align: center;
+    margin: 10px 0;
+}
+body {
+    background: rgb(32, 32, 32);
+    color: white;
+}
+button {
+    width: 150px;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+}
+#icy {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+#align-C,
+p {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+span {
+    text-align: center;
+}
+#stdnt {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5vh 15vw;
+}
+#stdnt div {
+    border: 1px solid white;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 0;
+    text-transform: capitalize;
+    font-size: 0.8rem;
+}
+#nav-stdnt {
+    display: grid;
+    margin: 5vh 15vw;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#nav-stdnt button {
+    width: 90px;
+}
+#click-box {
+    border: 2px solid blue;
+    background: rgb(65, 65, 255);
+    margin: 0 15vw;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1px;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+#click-box:hover {
+    letter-spacing: 3px;
+    font-size: 33px;
+    background: rgb(78, 78, 255);
+    transform: scale(1.05);
+    text-shadow: 0 0 2px white;
+}
+#too-much-box {
+    display: grid;
+    margin: 0;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    overflow: hidden;
+    height: 300px;
+    padding: 0;
+    border: 1px solid blue;
+}
+#too-much-box div {
+    margin: 0;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    border: 1px solid rgb(108, 0, 0);
+    border-radius: 3px;
+}
+#stdnt::first-letter {
+    color: red;
+}
+#control-btn {
+    border: 2px solid white;
+    display: inline-block;
+    padding: 10px 20px;
+    background: green;
+    border-radius: 5px;
+}
+#start-str,
+#end-str,
+#p-str {
+    display: inline;
+    width: 50px;
+}
+#btn-str {
+    width: 181px;
+    font-size: 25px;
+}
+#div-div {
+    font-size: 0;
+}
+#div-str2 {
+    transition: 0.5s;
+    color: red;
+}
+#div-str0,
+#div-str1,
+#div-str2,
+#div-str3 {
+    font-size: 20px;
+    text-align: justify;
+    margin: 10px 20px;
+    display: inline;
+    margin: 0;
+    line-height: 40px;
+}
+#infinity-p {
+    text-align: left;
+    margin-left: 50vw;
+    transform: translate(-50%, 0%);
+}
+#show-num,
+#sort-nums {
+    border: 2px solid gray;
+    margin: 20px auto;
+    border-radius: 5px;
+    padding: 3px;
+    width: 615px;
+}
+#add-sort-btn button {
+    display: inline-block;
+    height: 60px;
+    font-size: 18px;
+    box-sizing: border-box;
+    width: 200px;
+}
+abbr {
+    text-decoration: none;
+}
+/* #born-counter:nth-child(1) */
+#born-counter p {
+    opacity: 0.8;
+    display: inline;
+    line-height: 40px;
+    /* color: rgb(88, 88, 255); */
+}
+#err-input,
+#err2-input {
+    background: rgb(81, 81, 81) !important;
+    width: 300px;
+}
+#inliner input,
+#inliner button {
+    display: inline-block;
+    background: #8d8d8d;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+}
+#football-base,#timer-base {
+    position: relative;
+    height: 300px;
+    width: 760px;
+    border: 2px solid blue;
+    margin: 0 auto;
+    border-radius: 10px;
+    background: rgb(109, 109, 255);
+}
+#football-ball {
+    width: 80px;
+    height: 80px;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    /* background:(radial-gradient(circle,red,rgb(255, 255, 255))); */
+    background: radial-gradient(red 60%, rgba(0, 0, 0, 0) 68%);
+    /* border: 1px solid rgb(0, 0, 0); */
+    border-radius: 50%;
+    z-index: 2;
+}
+#inliner-p{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 1fr;
+    margin: 20px auto;
+    width: 60vw;
+    /* border: 1px solid red; */
+}
+#inliner-p p{
+    display: inline-block;
+    /* border: 1px solid red; */
+}
+#timer-base{
+    height: 30px;
+    margin: 10px auto;
+    background: rgb(255, 233, 109);
+}
+#timer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(0%,-35%);
+    background: rgba(255, 0, 0, 0.767);
+    border-radius: 10px;
+}
+#end-time{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    font-size: 60px;
+    font-family: cursive;
+    opacity: 0;
+    transform: 0.2s;
+    z-index: 1;
+    cursor: default;
+}
+#football-btns{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    width: 760px;
+    margin: 0 auto;
+}
+#football-btns button{
+    width: 100%;
+    font-size: 25px;
+    border-radius: 3px;
+    background: rgb(61, 61, 61);
+    color: rgba(255, 255, 255, 0.671);
+    height: 50px;
+    transition: 0.1s;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.655);
+}
+#football-btns button:hover{
+    background: rgb(56, 56, 56);
+    color: rgb(255, 255, 255);
+}
+#football-btns button:active{
+    transform: translate(0px,2px);
+    color: rgb(200, 200, 200);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.655);
+}
+/* #football-btns button:nth-child(1){
+    color: yellow;
+} */
+#high-records{
+    display: none;
+    grid-template-columns: 60px 100px auto 300px;
+    border: 1px solid blue;
+    margin: 10px auto;
+    width: 760px;
+    border-radius: 5px;
+    gap: 7px 0px;
+    background: rgb(43, 43, 183);
+}
+#high-records div{
+    /* border: 1px solid red; */
+    margin: 0;
+    background: rgba(109, 109, 255, 0.502);
+    padding: 5px 0;
+    color: rgba(255, 255, 255, 0.916);
+    box-shadow: 0 0 5px rgb(109, 109, 255);
+}
+#high-records div:nth-child(1),
+#high-records div:nth-child(2),
+#high-records div:nth-child(3),
+#high-records div:nth-child(4){
+    color: gold;
+}
