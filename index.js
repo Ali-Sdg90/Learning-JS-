@@ -1084,13 +1084,42 @@ let objtester = [
 const objTest = document.getElementById("obj-tester");
 // const objarr = Object.values(objtester);
 objTest.innerHTML = JSON.stringify(objtester);
-function objMaker(name,family,sen,color)
-{
-    this.firstName=name;
-    this.lastName=family;
-    this.age=sen;
-    this.favColor=color;
+function objMaker(name, family, sen, color) {
+    this.firstName = name;
+    this.lastName = family;
+    this.age = sen;
+    this.favColor = color;
 }
-const me = objMaker("ali","sad",21,blue)
-const sis = objMaker("saba","sad",17,red)
-cons
+const me = new objMaker("ali", "sad", 21, "blue");
+const sister = new objMaker("saba", "sad", 17, "red");
+// for(let i of me.length)
+// {
+//     console.log(i);
+// }
+// me.forEach(function(item){
+//     console.log(item)
+// })
+// console.log(typeof me)
+me.lang = "Far30";
+me.fullName = function () {
+    return this.firstName + " " + this.lastName;
+};
+// console.log(me.fullName())
+class firstClass {
+    constructor(name, age) {
+        this.carName = name;
+        this.carAge = age;
+    }
+    showAge() {
+        let date = new Date();
+        // console.log(typeof date);
+        // console.log(date.getFullYear());
+        // console.log(this.carAge);
+        return date.getFullYear() - this.carAge;
+    }
+}
+let myCar = new firstClass("random car", 2020);
+// console.log(myCar.showAge());
+// const randomString = "Hello = Aloha";
+// for (let i of randomString) console.log(i);
+// for(let i=0;i<randomString.length;i++) console.log(randomString[i])
