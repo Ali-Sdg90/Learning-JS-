@@ -166,7 +166,8 @@ abbr {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 5px;
 }
-#football-base,#timer-base {
+#football-base,
+#timer-base {
     position: relative;
     height: 300px;
     width: 760px;
@@ -178,7 +179,7 @@ abbr {
 #football-ball {
     width: 80px;
     height: 80px;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     position: absolute;
@@ -188,34 +189,34 @@ abbr {
     border-radius: 50%;
     z-index: 2;
 }
-#inliner-p{
+#inliner-p {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     margin: 20px auto;
     width: 60vw;
     /* border: 1px solid red; */
 }
-#inliner-p p{
+#inliner-p p {
     display: inline-block;
     /* border: 1px solid red; */
 }
-#timer-base{
+#timer-base {
     height: 30px;
     margin: 10px auto;
     background: rgb(255, 233, 109);
 }
-#timer{
+#timer {
     position: absolute;
     width: 100%;
     height: 100%;
-    transform: translate(0%,-35%);
+    transform: translate(0%, -35%);
     background: rgba(255, 0, 0, 0.767);
     border-radius: 10px;
 }
-#end-time{
+#end-time {
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     font-size: 60px;
@@ -225,14 +226,14 @@ abbr {
     z-index: 1;
     cursor: default;
 }
-#football-btns{
+#football-btns {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     width: 760px;
     margin: 0 auto;
 }
-#football-btns button{
+#football-btns button {
     width: 100%;
     font-size: 25px;
     border-radius: 3px;
@@ -242,19 +243,19 @@ abbr {
     transition: 0.1s;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.655);
 }
-#football-btns button:hover{
+#football-btns button:hover {
     background: rgb(56, 56, 56);
     color: rgb(255, 255, 255);
 }
-#football-btns button:active{
-    transform: translate(0px,2px);
+#football-btns button:active {
+    transform: translate(0px, 2px);
     color: rgb(200, 200, 200);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.655);
 }
 /* #football-btns button:nth-child(1){
     color: yellow;
 } */
-#high-records{
+#high-records {
     display: none;
     grid-template-columns: 60px 100px auto 300px;
     border: 1px solid blue;
@@ -264,7 +265,7 @@ abbr {
     gap: 7px 0px;
     background: rgb(43, 43, 183);
 }
-#high-records div{
+#high-records div {
     /* border: 1px solid red; */
     margin: 0;
     background: rgba(109, 109, 255, 0.502);
@@ -275,6 +276,6 @@ abbr {
 #high-records div:nth-child(1),
 #high-records div:nth-child(2),
 #high-records div:nth-child(3),
-#high-records div:nth-child(4){
+#high-records div:nth-child(4) {
     color: gold;
 }

@@ -884,7 +884,7 @@ const ScoreOutput = document.getElementById("score");
 const timerCounter = document.getElementById("timer");
 const endScreen = document.getElementById("end-time");
 const saveScore = localStorage.getItem("highestKey");
-const HSOl = document.getElementById("high-records");
+const HSOutput = document.getElementById("high-records");
 let score = 0;
 let endTimer = 30;
 let timer = 30;
@@ -892,11 +892,13 @@ if (localStorage.getItem("backUpScoresKey")) {
     highestScoreO.innerHTML = localStorage.getItem("backUpScoresKey");
     localStorage.setItem("highestKey", localStorage.getItem("backUpScoresKey"));
 }
+let isGameRunning = true;
 footballBall.addEventListener("mouseover", function () {
     if (timer <= 0) {
         endScreen.style.opacity = 1;
         endScreen.style.zIndex = 3;
-        addToHS();
+        if (isGameRunning) addToHS();
+        isGameRunning = false;
         return;
     }
     score++;
@@ -904,7 +906,7 @@ footballBall.addEventListener("mouseover", function () {
     footballBall.style.left = String(Math.floor(Math.random() * 90) + 5) + "%";
     ScoreOutput.innerHTML = score;
     let startTimer = Date.parse(Date()) / 1000;
-    if (endTimer == 30) endTimer = startTimer + 25;
+    if (endTimer == 30) endTimer = startTimer + 5;
     timer = endTimer - startTimer;
     timerCounter.style.width = timer * 4 + "%";
     // console.log(score)
@@ -952,6 +954,7 @@ document
         footballBall.style.left = "50%";
         endScreen.style.opacity = 0;
         endScreen.style.zIndex = 1;
+        isGameRunning = true;
     });
 document
     .querySelector("#football-btns button:nth-child(2)")
@@ -965,47 +968,105 @@ document
         footballBall.style.left = "50%";
         endScreen.style.opacity = 0;
         endScreen.style.zIndex = 1;
+        isGameRunning = true;
     });
 document
     .querySelector("#football-btns button:nth-child(3)")
     .addEventListener("click", function () {
-        if (HSOl.style.display != "grid") {
-            HSOl.style.display = "grid";
+        if (HSOutput.style.display != "grid") {
+            HSOutput.style.display = "grid";
             document.querySelector(
                 "#football-btns button:nth-child(3)"
             ).textContent = "Hide high records";
         } else {
-            HSOl.style.display = "none";
+            HSOutput.style.display = "none";
             document.querySelector(
                 "#football-btns button:nth-child(3)"
             ).textContent = "Show high records";
         }
     });
 // console.log(Date());
-addToHS();
-function addToHS() {
-    const footballHScores = [
+// const footballHScores = [
+//     {
+//         score: 30,
+//         date: "2022 13:40:33",
+//     },
+//     {
+//         score: 25,
+//         date: "2032 13:40:33",
+//     },
+//     {
+//         score: 20,
+//         date: "2042 13:40:33",
+//     },
+//     {
+//         score: 7,
+//         date: "2020/20/20 13:40:33",
+//     },
+//     {
+//         score: 6,
+//         date: "2021/21/21 13:40:33",
+//     },
+//     {
+//         score: 5,
+//         date: "2021/21/21 13:40:33",
+//     },
+// ];
+const footballHScores = JSON.parse(localStorage.getItem("HSfootball"));
+if (!localStorage.getItem("HSfootball")) {
+    footballHScores = [
         {
-            score: 20,
-            date: "2022 13:40:33",
+            score: 0,
+            date: "- - -",
         },
         {
-            score: 26,
-            date: "2032 13:40:33",
+            score: 0,
+            date: "- - -",
         },
         {
-            score: 19,
-            date: "2042 13:40:33",
+            score: 0,
+            date: "- - -",
         },
         {
-            score: 33,
-            date: "2020/20/20 13:40:33",
+            score: 0,
+            date: "- - -",
         },
         {
-            score: 44,
-            date: "2021/21/21 13:40:33",
+            score: 0,
+            date: "- - -",
+        },
+        {
+            score: 0,
+            date: "- - -",
         },
     ];
+}
+// if (score > 0)
+addToHS();
+function addToHS() {
+    const SAVEDATE = new Date();
+    let saveDate = `${SAVEDATE.getFullYear()}/${SAVEDATE.getMonth()}/${SAVEDATE.getDate()} ${SAVEDATE.getHours()}:${SAVEDATE.getMinutes()}:${SAVEDATE.getSeconds()}`;
+    // console.log(saveDate);
+    footballHScores[5].score = score;
+    footballHScores[5].date = saveDate;
+    // console.log(footballHScores)
+    footballHScores.sort(function (a, b) {
+        return b.score - a.score;
+    });
+    console.log(footballHScores);
+    HSOutput.innerHTML = "";
+    for (i in footballHScores) {
+        if (i == 5) break;
+        HSOutput.innerHTML += `
+        <div>${Number(i) + 1}</div>
+        <div>${footballHScores[i].score}</div>
+        <div>------------------</div>
+        <div>${footballHScores[i].date}</div>`;
+    }
+    localStorage.setItem("HSfootball", JSON.stringify(footballHScores));
+    JSON.parse(footballHScores);
+    // localStorage.setItem("HSfootball", JSON.stringify("empty!"));
+    /*
     const HScoresSorted = [];
     sortHS();
     function sortHS() {
@@ -1024,10 +1085,10 @@ function addToHS() {
             });
         }
         // console.log(HScoresSorted);
-        HSOl.innerHTML = "";
+        HSOutput.innerHTML = "";
         let HSCounter = 1;
         HScoresSorted.forEach(function (item) {
-            HSOl.innerHTML += `
+            HSOutput.innerHTML += `
     <div>${HSCounter++}</div>
     <div>${item.score}</div>
     <div>------------------</div>
@@ -1047,6 +1108,7 @@ function addToHS() {
         HScoresSorted.pop();
         sortHS();
     }
+    */
 }
 let objtester = [
     {
