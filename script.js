@@ -932,14 +932,15 @@ footballBall.addEventListener("mouseover", function () {
         Number(localStorage.getItem("backUpScoresKey")) <
         Number(localStorage.getItem("highestKey"))
     ) {
-        console.log(localStorage.getItem("backUpScoresKey"));
-        console.log(localStorage.getItem("highestKey"));
+        // console.log(localStorage.getItem("backUpScoresKey"));
+        // console.log(localStorage.getItem("highestKey"));
         localStorage.setItem(
             "backUpScoresKey",
             localStorage.getItem("highestKey")
         );
     }
 });
+let rewrite = true;
 document
     .querySelector("#football-btns button:nth-child(1)")
     .addEventListener("dblclick", function () {
@@ -955,6 +956,34 @@ document
         endScreen.style.opacity = 0;
         endScreen.style.zIndex = 1;
         isGameRunning = true;
+        footballHScores = [
+            {
+                score: 0,
+                date: "- - -",
+            },
+            {
+                score: 0,
+                date: "- - -",
+            },
+            {
+                score: 0,
+                date: "- - -",
+            },
+            {
+                score: 0,
+                date: "- - -",
+            },
+            {
+                score: 0,
+                date: "- - -",
+            },
+            {
+                score: 0,
+                date: "- - -",
+            },
+        ];
+        rewrite = false;
+        addToHS();
     });
 document
     .querySelector("#football-btns button:nth-child(2)")
@@ -977,43 +1006,47 @@ document
             HSOutput.style.display = "grid";
             document.querySelector(
                 "#football-btns button:nth-child(3)"
-            ).textContent = "Hide high records";
+            ).textContent = "Hide high scores";
         } else {
             HSOutput.style.display = "none";
             document.querySelector(
                 "#football-btns button:nth-child(3)"
-            ).textContent = "Show high records";
+            ).textContent = "Show high scores";
         }
     });
 // console.log(Date());
-// const footballHScores = [
-//     {
-//         score: 30,
-//         date: "2022 13:40:33",
-//     },
-//     {
-//         score: 25,
-//         date: "2032 13:40:33",
-//     },
-//     {
-//         score: 20,
-//         date: "2042 13:40:33",
-//     },
-//     {
-//         score: 7,
-//         date: "2020/20/20 13:40:33",
-//     },
-//     {
-//         score: 6,
-//         date: "2021/21/21 13:40:33",
-//     },
-//     {
-//         score: 5,
-//         date: "2021/21/21 13:40:33",
-//     },
-// ];
-const footballHScores = JSON.parse(localStorage.getItem("HSfootball"));
-if (!localStorage.getItem("HSfootball")) {
+/*
+const footballHScores = [
+    {
+        score: 30,
+        date: "2022 13:40:33",
+    },
+    {
+        score: 25,
+        date: "2032 13:40:33",
+    },
+    {
+        score: 20,
+        date: "2042 13:40:33",
+    },
+    {
+        score: 7,
+        date: "2020/20/20 13:40:33",
+    },
+    {
+        score: 6,
+        date: "2021/21/21 13:40:33",
+    },
+    {
+        score: 5,
+        date: "2021/21/21 13:40:33",
+    },
+];
+*/
+// console.log(localStorage.getItem("HSfootball"));
+// localStorage.clear();
+let footballHScores = [];
+if (!localStorage.getItem("HSfootballBackup")) {
     footballHScores = [
         {
             score: 0,
@@ -1040,7 +1073,18 @@ if (!localStorage.getItem("HSfootball")) {
             date: "- - -",
         },
     ];
+} else {
+    console.log("BIG 2 small");
+    localStorage.setItem(
+        "HSfootball",
+        localStorage.getItem("HSfootballBackup")
+    );
+    console.log(localStorage.getItem("HSfootballBackup"));
+    console.log(localStorage.getItem("HSfootball"));
 }
+
+if (localStorage.getItem("HSfootball"))
+    footballHScores = JSON.parse(localStorage.getItem("HSfootball"));
 // if (score > 0)
 addToHS();
 function addToHS() {
@@ -1064,7 +1108,13 @@ function addToHS() {
         <div>${footballHScores[i].date}</div>`;
     }
     localStorage.setItem("HSfootball", JSON.stringify(footballHScores));
-    JSON.parse(footballHScores);
+    if (rewrite)
+        localStorage.setItem(
+            "HSfootballBackup",
+            JSON.stringify(footballHScores)
+        );
+    // JSON.parse(footballHScores);
+    // console.log(typeof footballHScores)
     // localStorage.setItem("HSfootball", JSON.stringify("empty!"));
     /*
     const HScoresSorted = [];
