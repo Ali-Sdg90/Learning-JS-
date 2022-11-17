@@ -1050,44 +1050,56 @@ if (!localStorage.getItem("HSfootballBackup")) {
     footballHScores = [
         {
             score: 0,
+            saveName: "",
             date: "- - -",
         },
         {
             score: 0,
+            saveName: "",
             date: "- - -",
         },
         {
             score: 0,
+            saveName: "",
             date: "- - -",
         },
         {
             score: 0,
+            saveName: "",
             date: "- - -",
         },
         {
             score: 0,
+            saveName: "",
             date: "- - -",
         },
         {
             score: 0,
+            saveName: "",
             date: "- - -",
         },
     ];
 } else {
-    console.log("BIG 2 small");
+    // console.log("BIG 2 small");
     localStorage.setItem(
         "HSfootball",
         localStorage.getItem("HSfootballBackup")
     );
-    console.log(localStorage.getItem("HSfootballBackup"));
-    console.log(localStorage.getItem("HSfootball"));
+    // console.log(localStorage.getItem("HSfootballBackup"));
+    // console.log(localStorage.getItem("HSfootball"));
 }
 
 if (localStorage.getItem("HSfootball"))
     footballHScores = JSON.parse(localStorage.getItem("HSfootball"));
-// if (score > 0)
+// try {
+
+// } catch (err) {}
 addToHS();
 function addToHS() {
+    for (i in footballHScores) {
+        if (!footballHScores[i].saveName)
+            footballHScores[i].saveName = "- - - - - - - - - - - - - - - - - -";
+    }
     const SAVEDATE = new Date();
     let saveDate = `${SAVEDATE.getFullYear()}/${SAVEDATE.getMonth()}/${SAVEDATE.getDate()} ${SAVEDATE.getHours()}:${SAVEDATE.getMinutes()}:${SAVEDATE.getSeconds()}`;
     // console.log(saveDate);
@@ -1099,14 +1111,28 @@ function addToHS() {
     });
     console.log(footballHScores);
     HSOutput.innerHTML = "";
+    HSOtempOutput = "";
+    // ------------------
     for (i in footballHScores) {
         if (i == 5) break;
-        HSOutput.innerHTML += `
+
+        HSOtempOutput += `
         <div>${Number(i) + 1}</div>
         <div>${footballHScores[i].score}</div>
-        <div>------------------</div>
+        <div id="middle-div${i}">
+            <input type="text" id="save-input${i}" onfocus="this.value=''">
+            <div id="name-saver${i}">save</div>
+        </div>
         <div>${footballHScores[i].date}</div>`;
     }
+    HSOutput.innerHTML = HSOtempOutput;
+    try {
+        for (i in footballHScores) {
+            // console.log(footballHScores[i].saveName);
+            document.getElementById(`save-input${i}`).value =
+                footballHScores[i].saveName;
+        }
+    } catch (err) {}
     localStorage.setItem("HSfootball", JSON.stringify(footballHScores));
     if (rewrite)
         localStorage.setItem(
@@ -1160,6 +1186,41 @@ function addToHS() {
     }
     */
 }
+try {
+    for (let i = 0; i < footballHScores.length; i++) {
+        document
+            .getElementById(`save-input${i}`)
+            .addEventListener("focus", function () {
+                document.getElementById(`name-saver${i}`).style.opacity = "1";
+                document.getElementById(`name-saver${i}`).style.zIndex = "1";
+                document.getElementById(`name-saver${i}`).style.transition =
+                    "0.3s";
+            });
+        document
+            .getElementById(`save-input${i}`)
+            .addEventListener("focusout", function () {
+                document.getElementById(`name-saver${i}`).style.opacity = "0";
+                document.getElementById(`name-saver${i}`).style.transition =
+                    "0.28s -50ms";
+                setTimeout(function () {
+                    document.getElementById(`name-saver${i}`).style.zIndex =
+                        "-1";
+                }, 150);
+                if (document.getElementById(`save-input${i}`).value == "")
+                    document.getElementById(`save-input${i}`).value =
+                        "- - - - - - - - - - - - - - - - - -";
+            });
+        document
+            .getElementById(`name-saver${i}`)
+            .addEventListener("click", function () {
+                console.log(document.getElementById(`save-input${i}`).value);
+                footballHScores[i].saveName = document.getElementById(
+                    `save-input${i}`
+                ).value;
+            });
+    }
+} catch (err) {}
+
 let objtester = [
     {
         firstNamee: "ali",
