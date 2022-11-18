@@ -885,6 +885,41 @@ const timerCounter = document.getElementById("timer");
 const endScreen = document.getElementById("end-time");
 const saveScore = localStorage.getItem("highestKey");
 const HSOutput = document.getElementById("high-records");
+// localStorage.clear();
+function resetLocalSaves() {
+    footballHScores = [
+        {
+            score: 0,
+            saveName: "",
+            date: "- - -",
+        },
+        {
+            score: 0,
+            saveName: "",
+            date: "- - -",
+        },
+        {
+            score: 0,
+            saveName: "",
+            date: "- - -",
+        },
+        {
+            score: 0,
+            saveName: "",
+            date: "- - -",
+        },
+        {
+            score: 0,
+            saveName: "",
+            date: "- - -",
+        },
+        {
+            score: 0,
+            saveName: "",
+            date: "- - -",
+        },
+    ];
+}
 let score = 0;
 let endTimer = 30;
 let timer = 30;
@@ -906,9 +941,9 @@ footballBall.addEventListener("mouseover", function () {
     footballBall.style.left = String(Math.floor(Math.random() * 90) + 5) + "%";
     ScoreOutput.innerHTML = score;
     let startTimer = Date.parse(Date()) / 1000;
-    if (endTimer == 30) endTimer = startTimer + 5;
+    if (endTimer == 30) endTimer = startTimer + 10;
     timer = endTimer - startTimer;
-    timerCounter.style.width = timer * 4 + "%";
+    timerCounter.style.width = timer * 10 + "%";
     // console.log(score)
     // console.log(highestScoreN)
     // console.log(Math.max(score,highestScoreN))
@@ -956,32 +991,7 @@ document
         endScreen.style.opacity = 0;
         endScreen.style.zIndex = 1;
         isGameRunning = true;
-        footballHScores = [
-            {
-                score: 0,
-                date: "- - -",
-            },
-            {
-                score: 0,
-                date: "- - -",
-            },
-            {
-                score: 0,
-                date: "- - -",
-            },
-            {
-                score: 0,
-                date: "- - -",
-            },
-            {
-                score: 0,
-                date: "- - -",
-            },
-            {
-                score: 0,
-                date: "- - -",
-            },
-        ];
+        resetLocalSaves();
         rewrite = false;
         addToHS();
     });
@@ -999,16 +1009,29 @@ document
         endScreen.style.zIndex = 1;
         isGameRunning = true;
     });
+if (localStorage.getItem("showHS") == "true") {
+    HSOutput.style.display = "grid";
+    document.querySelector("#football-btns button:nth-child(3)").textContent =
+        "Hide high scores";
+    // console.log("SHOW");
+} else {
+    HSOutput.style.display = "none";
+    document.querySelector("#football-btns button:nth-child(3)").textContent =
+        "Show high scores";
+    // console.log("HIDE");
+}
 document
     .querySelector("#football-btns button:nth-child(3)")
     .addEventListener("click", function () {
         if (HSOutput.style.display != "grid") {
             HSOutput.style.display = "grid";
+            localStorage.setItem("showHS", true);
             document.querySelector(
                 "#football-btns button:nth-child(3)"
             ).textContent = "Hide high scores";
         } else {
             HSOutput.style.display = "none";
+            localStorage.setItem("showHS", false);
             document.querySelector(
                 "#football-btns button:nth-child(3)"
             ).textContent = "Show high scores";
@@ -1047,38 +1070,7 @@ const footballHScores = [
 // localStorage.clear();
 let footballHScores = [];
 if (!localStorage.getItem("HSfootballBackup")) {
-    footballHScores = [
-        {
-            score: 0,
-            saveName: "",
-            date: "- - -",
-        },
-        {
-            score: 0,
-            saveName: "",
-            date: "- - -",
-        },
-        {
-            score: 0,
-            saveName: "",
-            date: "- - -",
-        },
-        {
-            score: 0,
-            saveName: "",
-            date: "- - -",
-        },
-        {
-            score: 0,
-            saveName: "",
-            date: "- - -",
-        },
-        {
-            score: 0,
-            saveName: "",
-            date: "- - -",
-        },
-    ];
+    resetLocalSaves();
 } else {
     // console.log("BIG 2 small");
     localStorage.setItem(
@@ -1095,13 +1087,22 @@ if (localStorage.getItem("HSfootball"))
 
 // } catch (err) {}
 addToHS();
+function makeSaveDate(time) {
+    return String(time).padStart(2, "0");
+}
 function addToHS() {
     for (i in footballHScores) {
         if (!footballHScores[i].saveName)
             footballHScores[i].saveName = "- - - - - - - - - - - - - - - - - -";
     }
     const SAVEDATE = new Date();
-    let saveDate = `${SAVEDATE.getFullYear()}/${SAVEDATE.getMonth()}/${SAVEDATE.getDate()} ${SAVEDATE.getHours()}:${SAVEDATE.getMinutes()}:${SAVEDATE.getSeconds()}`;
+    let saveDate = `${SAVEDATE.getFullYear()}/${makeSaveDate(
+        SAVEDATE.getMonth()
+    )}/${makeSaveDate(SAVEDATE.getDate())} ${makeSaveDate(
+        SAVEDATE.getHours()
+    )}:${makeSaveDate(SAVEDATE.getMinutes())}:${makeSaveDate(
+        SAVEDATE.getSeconds()
+    )}`;
     // console.log(saveDate);
     footballHScores[5].score = score;
     footballHScores[5].date = saveDate;
@@ -1185,42 +1186,74 @@ function addToHS() {
         sortHS();
     }
     */
+    changeName();
 }
-try {
-    for (let i = 0; i < footballHScores.length; i++) {
-        document
-            .getElementById(`save-input${i}`)
-            .addEventListener("focus", function () {
-                document.getElementById(`name-saver${i}`).style.opacity = "1";
-                document.getElementById(`name-saver${i}`).style.zIndex = "1";
-                document.getElementById(`name-saver${i}`).style.transition =
-                    "0.3s";
-            });
-        document
-            .getElementById(`save-input${i}`)
-            .addEventListener("focusout", function () {
-                document.getElementById(`name-saver${i}`).style.opacity = "0";
-                document.getElementById(`name-saver${i}`).style.transition =
-                    "0.28s -50ms";
-                setTimeout(function () {
+changeName();
+function changeName() {
+    try {
+        for (let i = 0; i < footballHScores.length; i++) {
+            document
+                .getElementById(`save-input${i}`)
+                .addEventListener("focus", function () {
+                    document.getElementById(`name-saver${i}`).style.opacity =
+                        "1";
                     document.getElementById(`name-saver${i}`).style.zIndex =
-                        "-1";
-                }, 150);
-                if (document.getElementById(`save-input${i}`).value == "")
-                    document.getElementById(`save-input${i}`).value =
-                        "- - - - - - - - - - - - - - - - - -";
-            });
-        document
-            .getElementById(`name-saver${i}`)
-            .addEventListener("click", function () {
-                console.log(document.getElementById(`save-input${i}`).value);
-                footballHScores[i].saveName = document.getElementById(
-                    `save-input${i}`
-                ).value;
-            });
-    }
-} catch (err) {}
-
+                        "1";
+                    document.getElementById(`name-saver${i}`).style.transition =
+                        "0.3s";
+                });
+            document
+                .getElementById(`save-input${i}`)
+                .addEventListener("focusout", function () {
+                    document.getElementById(`name-saver${i}`).style.opacity =
+                        "0";
+                    document.getElementById(`name-saver${i}`).style.transition =
+                        "0.28s -50ms";
+                    setTimeout(function () {
+                        document.getElementById(`name-saver${i}`).style.zIndex =
+                            "-1";
+                    }, 150);
+                    if (document.getElementById(`save-input${i}`).value == "") {
+                        if (
+                            footballHScores[i].saveName !=
+                            "- - - - - - - - - - - - - - - - - -"
+                        ) {
+                            document.getElementById(`save-input${i}`).value =
+                                footballHScores[i].saveName;
+                        } else
+                            document.getElementById(`save-input${i}`).value =
+                                "- - - - - - - - - - - - - - - - - -";
+                    }
+                });
+            document
+                .getElementById(`name-saver${i}`)
+                .addEventListener("click", function () {
+                    // console.log(
+                    //     document.getElementById(`save-input${i}`).value
+                    // );
+                    footballHScores[i].saveName = document.getElementById(
+                        `save-input${i}`
+                    ).value;
+                    localStorage.setItem(
+                        "HSfootball",
+                        JSON.stringify(footballHScores)
+                    );
+                    if (rewrite)
+                        localStorage.setItem(
+                            "HSfootballBackup",
+                            JSON.stringify(footballHScores)
+                        );
+                });
+            document
+                .getElementById(`name-saver${i}`)
+                .addEventListener("focusout", function () {
+                    // document.getElementById(`name-saver${i}`).value =
+                    //     footballHScores[i].saveName;
+                    console.log("out");
+                });
+        }
+    } catch (err) {}
+}
 let objtester = [
     {
         firstNamee: "ali",
