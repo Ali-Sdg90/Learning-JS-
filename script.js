@@ -1110,7 +1110,7 @@ function addToHS() {
     footballHScores.sort(function (a, b) {
         return b.score - a.score;
     });
-    console.log(footballHScores);
+    // console.log(footballHScores);
     HSOutput.innerHTML = "";
     HSOtempOutput = "";
     // ------------------
@@ -1329,3 +1329,11 @@ let myCar = new firstClass("random car", 2020);
 // const randomString = "Hello = Aloha";
 // for (let i of randomString) console.log(i);
 // for(let i=0;i<randomString.length;i++) console.log(randomString[i])
+const queueOutput = document.getElementById("queue-days");
+const StartQueue = "2022-07-17";
+const timeStartQueue = new Date(StartQueue);
+// console.log(timeInQueue)
+const milStartQueue = Date.parse(timeStartQueue);
+const inQueue = milToday - milStartQueue;
+console.log(inQueue / 86400000);
+queueOutput.textContent = Math.floor(inQueue / 86400000);
