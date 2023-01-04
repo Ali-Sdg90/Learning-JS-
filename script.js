@@ -1335,5 +1335,110 @@ const timeStartQueue = new Date(StartQueue);
 // console.log(timeInQueue)
 const milStartQueue = Date.parse(timeStartQueue);
 const inQueue = milToday - milStartQueue;
-console.log(inQueue / 86400000);
+// console.log(inQueue / 86400000);
 queueOutput.textContent = Math.floor(inQueue / 86400000);
+// document.querySelector("body").addEventListener("click", function () {
+document.addEventListener("click", function () {
+    const activeEl = document.activeElement.tagName;
+    document.getElementById("active-element").textContent = activeEl;
+});
+document.getElementById("copy-txt").addEventListener("copy", function () {
+    document.getElementById("copy-notifier").textContent = "You listened!";
+});
+// document
+//     .getElementById("valid-checker")
+//     .addEventListener("invalid", function () {
+//         console.log("aaa");
+//     });
+const upperCaserInp = document.getElementById("upperCaser");
+upperCaserInp.addEventListener("keyup", function () {
+    upperCaserInp.value = upperCaserInp.value.toUpperCase();
+    document.getElementById("text-shower").textContent =
+        upperCaserInp.value.charAt(upperCaserInp.value.length - 1);
+    // console.log(upperCaserInp.value.charAt(upperCaserInp.value.length-1))
+});
+let scrollCounter = 0;
+document.addEventListener("wheel", function () {
+    document.getElementById("scroll-time").textContent = ++scrollCounter;
+});
+document.getElementById("base-uri").textContent = document.baseURI;
+document.getElementById("base-uri").href = document.baseURI;
+let moveMouseCounter = 0;
+document.body.addEventListener("mousemove", function () {
+    document.getElementById("move-mouse").textContent = ++moveMouseCounter;
+});
+const addedP = document.createElement("p");
+addedP.textContent = `I'm created by createElement("p") in JS !\n
+                      and appendChild()`;
+addedP.id = "added-id";
+document.getElementById("js-add-this").appendChild(addedP);
+document.getElementById("added-id").style.color = "blue";
+
+const divMaker = document.createElement("div");
+divMaker.id = "divMaker-head";
+divMaker.style.width = "80%";
+divMaker.style.margin = "20px auto";
+document.getElementById("js-add-this").appendChild(divMaker);
+document.getElementById("divMaker-head").style.display = "flex";
+document.getElementById("divMaker-head").style.justifyContent = "space-around";
+let setIntervalCounter = 0;
+let setIntervaler;
+document
+    .getElementById("setInterval-activator")
+    .addEventListener("click", function () {
+        setIntervaler = setInterval(addSpan, 20);
+    });
+// document
+//     .getElementById("setInterval-stop")
+//     .addEventListener("click", function () {
+//         console.log("clear");
+//         clearInterval(setIntervaler);
+//     });
+function addSpan() {
+    const spanInDiv = document.createElement("span");
+    // spanInDiv.style.border = "1px solid red";
+    document.getElementById("setInterval-number").textContent =
+        setIntervalCounter;
+    if (setIntervalCounter % 10 == 0) clearInterval(setIntervaler);
+    spanInDiv.textContent = setIntervalCounter++;
+    spanInDiv.style.width = "100%";
+    spanInDiv.style.overflow = "hidden";
+    divMaker.appendChild(spanInDiv);
+    document.getElementById("setInterval-length").textContent =
+        divMaker.textContent.length;
+}
+addSpan();
+document.getElementById("w-h-shower").addEventListener("click", function () {
+    document.getElementById("w-h-page").textContent =
+        document.defaultView.innerWidth +
+        "px   " +
+        document.defaultView.innerHeight +
+        "px";
+    document.getElementById("w-h-page").style.fontFamily = "sans-serif";
+});
+
+document.getElementById("design-on").addEventListener("click", function () {
+    document.designMode = "on";
+    document.getElementById("design-mode").textContent = "on";
+});
+document.getElementById("design-off").addEventListener("click", function () {
+    document.designMode = "off";
+    document.getElementById("design-mode").textContent = "off";
+});
+setInterval(focusChecker, 100);
+// let counterLoop = 0;
+function focusChecker() {
+    // console.log(counterLoop++);
+    if (document.hasFocus()) {
+        document.getElementById("focus-check").textContent =
+            "I appreciate your attention :)";
+    } else {
+        document.getElementById("focus-check").textContent = "LOOK AT ME ! >:O";
+    }
+}
+// let hiSayer = setInterval(sayHi, 50);
+// let hiCounter = 0;
+// function sayHi() {
+    // console.log("HI " + ++hiCounter);
+    // if (hiCounter % 50 == 0) clearInterval(hiSayer);
+// }

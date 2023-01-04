@@ -2,6 +2,7 @@
     font-size: 30px;
     text-align: center;
     margin: 10px 0;
+    box-sizing: border-box;
 }
 body {
     background: rgb(32, 32, 32);
@@ -346,4 +347,10 @@ div[id^="name-saver"] {
 #queue-days {
     color: rgb(255, 58, 58);
     text-shadow: 0 0 3px;
+    font-family: sans-serif;
+}
+#setInterval-div {
+    display: flex;
+    width: 50%;
+    margin: auto;
 }
