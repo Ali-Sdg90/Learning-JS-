@@ -274,7 +274,42 @@
         <br />
         <hr />
         <br />
-        <p id="focus-check">LOOK AT ME ! >:O</p>
+        <p id="focus-check" title="document.hasFocus()">LOOK AT ME ! >:O</p>
+        <br />
+        <hr />
+        <br />
+        <input type="text" id="focus-blur-inp" value="Hello" />
+        <div id="focus-blur-div">
+            <button id="focus-btn">.focus()</button>
+            <button id="blur-btn">.blur()</button>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <p>Number of element in body: <span id="child-body"></span></p>
+        <p>Number of p : <span id="child-p"></span></p>
+        <p>Number of div : <span id="child-div"></span></p>
+        <p>Number of span : <span id="child-span"></span></p>
+        <p>Number of input : <span id="child-input"></span></p>
+        <div id="element-adder"></div>
+        <div id="element-adder-btns">
+            <button id="add-p">add p</button>
+            <button id="add-div">add div</button>
+            <button id="add-span">add span</button>
+            <button id="add-input">add input</button>
+        </div>
+        <button id="live-count">LIVE count <span id="on-off">off</span></button>
+        <p id="live-timer">-</p>
+        <br />
+        <hr />
+        <br />
+        <p id="class-hello">Hello</p>
+        <div id="change-class">
+            <button id="class-add">.classList.add("class-red")</button>
+            <button id="class-remove">.classList.remove("class-red")</button>
+            <button id="class-toggle">.classList.toggle("class-blue")</button>
+        </div>
+        <p>Hello class : <span id="color-changes">-</span></p>
         <script src="./script.js"></script>
     </body>
 </html>

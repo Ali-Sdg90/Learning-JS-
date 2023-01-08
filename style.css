@@ -354,3 +354,44 @@ div[id^="name-saver"] {
     width: 50%;
     margin: auto;
 }
+#focus-blur-inp {
+    transition: color 1s, background 1s;
+}
+#focus-blur-inp:focus {
+    transition: color 0.2s, background 0.2s;
+    background-color: rgba(0, 132, 255, 0.6);
+    color: white;
+}
+#focus-blur-div button,
+#element-adder-btns button {
+    display: inline;
+    margin: 10px;
+}
+#live-count {
+    width: 250px;
+}
+#live-count::selection,
+#on-off::selection {
+    background: transparent;
+}
+#element-adder {
+    display: none;
+}
+#change-class{
+    margin: 0 100px;
+}
+#change-class button{
+    display: inline;
+    margin: 10px;
+    width: 450px;
+    /* height: 100px; */
+}
+.class-red {
+    color: red;
+}
+.class-blue {
+    color: blue;
+}
+.class-purple {
+    color: purple;
+}

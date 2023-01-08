@@ -1439,6 +1439,102 @@ function focusChecker() {
 // let hiSayer = setInterval(sayHi, 50);
 // let hiCounter = 0;
 // function sayHi() {
-    // console.log("HI " + ++hiCounter);
-    // if (hiCounter % 50 == 0) clearInterval(hiSayer);
+// console.log("HI " + ++hiCounter);
+// if (hiCounter % 50 == 0) clearInterval(hiSayer);
 // }
+document.getElementById("focus-btn").addEventListener("click", function () {
+    document.getElementById("focus-blur-inp").focus();
+});
+document.getElementById("blur-btn").addEventListener("click", function () {
+    document.getElementById("focus-blur-inp").blur();
+});
+// console.log(document.body.childElementCount)
+cildCounter();
+function cildCounter() {
+    document.getElementById("child-body").textContent =
+        document.body.childElementCount;
+    document.getElementById("child-p").textContent =
+        document.querySelectorAll("p").length;
+    document.getElementById("child-div").textContent =
+        document.querySelectorAll("div").length;
+    document.getElementById("child-span").textContent =
+        document.querySelectorAll("span").length;
+    document.getElementById("child-input").textContent =
+        document.querySelectorAll("input").length;
+}
+document.getElementById("live-count").addEventListener("click", function () {
+    document.getElementById("live-count").style.pointerEvents = "none";
+    let liveCounter = 0;
+    const cildInterval = setInterval(liveCount, 10);
+    document.getElementById("on-off").textContent = "on";
+    const timer = document.getElementById("live-timer");
+    function liveCount() {
+        cildCounter();
+        timer.textContent =
+            String((1 - liveCounter / 1000).toFixed(2)).padEnd(4, "0") + " s";
+        if (++liveCounter >= 1000) {
+            clearInterval(cildInterval);
+            document.getElementById("on-off").textContent = "off";
+            timer.textContent = "-";
+            document.getElementById("live-count").style.pointerEvents = "all";
+        }
+    }
+});
+document.getElementById("add-p").addEventListener("click", function () {
+    const addP = document.createElement("p");
+    addP.style.display = "none";
+    document.body.appendChild(addP);
+});
+document.getElementById("add-div").addEventListener("click", function () {
+    const addDiv = document.createElement("div");
+    addDiv.style.display = "none";
+    document.body.appendChild(addDiv);
+});
+document.getElementById("add-span").addEventListener("click", function () {
+    const addSpan = document.createElement("span");
+    addSpan.style.display = "none";
+    document.body.appendChild(addSpan);
+});
+document.getElementById("add-input").addEventListener("click", function () {
+    const addInput = document.createElement("input");
+    addInput.style.display = "none";
+    document.body.appendChild(addInput);
+});
+document.getElementById("class-add").addEventListener("click", function () {
+    document.getElementById("class-hello").classList.add("class-red");
+});
+document.getElementById("class-remove").addEventListener("click", function () {
+    document.getElementById("class-hello").classList.remove("class-red");
+});
+document.getElementById("class-toggle").addEventListener("click", function () {
+    document.getElementById("class-hello").classList.toggle("class-blue");
+});
+document.querySelectorAll("#change-class button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+        if (
+            document.getElementById("class-hello").classList.length == 3 &&
+            btn.textContent == '.classList.add("class-red")'
+        )
+            return;
+        if (
+            String(document.getElementById("class-hello").classList) ==
+                "class-red class-blue" ||
+            String(document.getElementById("class-hello").classList) ==
+                "class-blue class-red"
+        ) {
+            document
+                .getElementById("class-hello")
+                .classList.add("class-purple");
+        } else {
+            document
+                .getElementById("class-hello")
+                .classList.remove("class-purple");
+        }
+        document.getElementById("color-changes").textContent = String(
+            document.getElementById("class-hello").classList
+        );
+        if (!document.getElementById("color-changes").textContent) {
+            document.getElementById("color-changes").textContent = "-";
+        }
+    });
+});
