@@ -395,3 +395,37 @@ div[id^="name-saver"] {
 .class-purple {
     color: purple;
 }
+
+.red-boxes__div{
+    border: 2px solid blue;
+    width: 80vw;
+    margin: 20px auto;
+    height: 500px;
+    display: grid;
+    gap: 3px;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    /* grid-template-columns: repeat(auto-fit, 200px); */
+    grid-template-columns: repeat(10, 1fr);
+    grid-auto-rows: auto;
+    padding: 6px;
+}
+.red-boxes__box{
+    margin: 0;
+    /* border: 2px solid rgb(91, 0, 0); */
+    background:red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: default;
+    transition: opacity 0.2s, transform 0.2s,background 0.5s;
+}
+.red-boxes__box:hover{
+    transform: scale(1.03);
+    background: rgb(198, 0, 0);
+}
+.red-boxes__btn{
+    width: 200px;
+    padding: 10px;
+}

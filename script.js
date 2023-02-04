@@ -1,6 +1,6 @@
 // let name = "AliSad90";
 // let age = 30;
-// let male = false;
+// let male = true;
 // let firstName = undefined;
 // let selectColor = null;
 // console.log(name);
@@ -1537,4 +1537,22 @@ document.querySelectorAll("#change-class button").forEach(function (btn) {
             document.getElementById("color-changes").textContent = "-";
         }
     });
+});
+
+const redBoxDiv = document.querySelector(".red-boxes__div");
+const redBoxBtn = document.querySelector(".red-boxes__btn");
+let redBoxNum = 1;
+redBoxBtn.addEventListener("click", function () {
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+            const newBox = document.createElement("div");
+            newBox.classList.add("red-boxes__box");
+            newBox.textContent = redBoxNum++;
+            redBoxDiv.appendChild(newBox);
+            newBox.style.opacity=0;
+            setTimeout(() => {
+                newBox.style.opacity=1;
+            }, 10 * i + 1);
+        }, 100 * i);
+    }
 });
