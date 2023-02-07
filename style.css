@@ -344,7 +344,7 @@ div[id^="name-saver"] {
     transition: 0.3s 0.1s;
     z-index: -1;
 }
-#queue-days {
+.red-countdown {
     color: rgb(255, 58, 58);
     text-shadow: 0 0 3px;
     font-family: sans-serif;
@@ -428,4 +428,7 @@ div[id^="name-saver"] {
 .red-boxes__btn{
     width: 200px;
     padding: 10px;
+}
+hr{
+    margin: 40px 0;
 }

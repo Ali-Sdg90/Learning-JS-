@@ -1549,10 +1549,18 @@ redBoxBtn.addEventListener("click", function () {
             newBox.classList.add("red-boxes__box");
             newBox.textContent = redBoxNum++;
             redBoxDiv.appendChild(newBox);
-            newBox.style.opacity=0;
+            newBox.style.opacity = 0;
             setTimeout(() => {
-                newBox.style.opacity=1;
+                newBox.style.opacity = 1;
             }, 10 * i + 1);
         }, 100 * i);
     }
 });
+
+const mahsa = new Date("2022-09-16");
+const now = new Date();
+const differenceInTime = now.getTime() - mahsa.getTime();
+const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+
+document.getElementById("mahsa-amini").textContent =
+    Math.ceil(differenceInDays);
