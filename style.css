@@ -412,7 +412,7 @@ div[id^="name-saver"] {
 .red-boxes__box{
     margin: 0;
     /* border: 2px solid rgb(91, 0, 0); */
-    background:red;
+    background:rgba(255, 0, 0, 0.563);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -431,4 +431,36 @@ div[id^="name-saver"] {
 }
 hr{
     margin: 40px 0;
+}
+
+#workers-box{
+    border: 2px solid blue;
+    width: 80vw;
+    margin: 20px auto;
+    height: 20vw;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 10px;
+}
+.worker-info{
+    width: 100%;
+    border: 1px solid red;
+    width: 300px;
+    padding: 3px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.worker-info p{
+    margin: 3px;
+    font-size: 20px;
+    display: block;
+}
+#add-worker{
+    width: 200px;
 }

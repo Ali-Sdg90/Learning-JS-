@@ -1564,3 +1564,72 @@ const differenceInDays = differenceInTime / (1000 * 3600 * 24);
 
 document.getElementById("mahsa-amini").textContent =
     Math.ceil(differenceInDays);
+
+let workers = 0;
+class Worker {
+    constructor(name, lastName, joinYear) {
+        this.name = name;
+        this.lastName = lastName;
+        this.joinYear = joinYear;
+        workers++;
+    }
+
+    workFor() {
+        let date = new Date().getFullYear();
+        return date - this.joinYear;
+    }
+
+    output() {
+        return `
+            <div class="worker-info">
+                <p>Name: ${this.name}</p>
+                <p>Last Name: ${this.lastName}</p>
+                <p>Join Year: ${this.joinYear}</p>
+                <p>Worked for: ${this.workFor()} Years</p>
+            </div>
+        `;
+    }
+}
+
+let workersArray = [
+    new Worker("Ali", "Sadeghi", 2021),
+    new Worker("Roham", "Mashayekhi", 2013),
+    new Worker("Parya", "Mahmoodi", 1989),
+    // new Worker("Bahram", "Bahramsari", 1380),
+];
+
+const workersHTML = document.getElementById("workers-box");
+
+function showWorkers() {
+    let workersOutput = "";
+    for (let i = 0; i < workersArray.length; i++) {
+        workersOutput += workersArray[i].output();
+    }
+    workersHTML.innerHTML = workersOutput;
+}
+showWorkers();
+
+document.getElementById("add-worker").addEventListener("click", function () {
+    const newWorkerName = document.getElementById("new-worker-name");
+    const newWorkerLastName = document.getElementById("new-worker-lastname");
+    const newWorkerJoinYear = document.getElementById("new-worker-joinyear");
+    if (
+        newWorkerName.value &&
+        newWorkerLastName.value &&
+        newWorkerJoinYear.value
+    ) {
+        workersArray.push(
+            new Worker(
+                newWorkerName.value,
+                newWorkerLastName.value,
+                newWorkerJoinYear.value
+            )
+        );
+        showWorkers();
+        newWorkerName.value = "";
+        newWorkerLastName.value = "";
+        newWorkerJoinYear.value = "";
+    } else {
+        alert("Please fill all inputs");
+    }
+});
