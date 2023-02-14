@@ -461,30 +461,7 @@ hr {
     font-size: 20px;
     display: block;
 }
+
 #add-worker {
     width: 200px;
-}
-#form-css input{
-    transition: 0.4s;
-}
-#form-css input:nth-child(2) {
-    width: 376px;
-}
-#form-css input:required {
-    background: red;
-}
-#form-css input:optional {
-    background: rgb(255, 221, 0);
-}
-#form-css input:invalid {
-    background: rgb(8, 0, 255);
-}
-#form-css form:nth-child(1) {
-    color: red;
-}
-#form-css form:nth-child(2) {
-    color: rgb(255, 221, 0);
-}
-#form-css form:nth-child(3) {
-    color: rgb(8, 0, 255);
 }

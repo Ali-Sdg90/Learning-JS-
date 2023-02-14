@@ -1629,7 +1629,5 @@ document.getElementById("add-worker").addEventListener("click", function () {
         newWorkerName.value = "";
         newWorkerLastName.value = "";
         newWorkerJoinYear.value = "";
-    } else {
-        alert("Please fill all inputs");
     }
 });

@@ -255,73 +255,48 @@
             </div>
             <button class="red-boxes__btn">Add 5 more</button>
         </div>
-        <p>Add new Worker:</p>
         <hr />
         <br />
         <div id="workers-box"></div>
         <form>
-            <label for="new-worker-name"
-                >Name : &nbsp; &nbsp; &nbsp; &nbsp;</label
-            >
-            <input
-                type="text"
-                name="new-worker-name"
-                id="new-worker-name"
-                required
-            />
-        </form>
-        <form>
-            <label for="new-worker-lastname">Last Name : </label>
-            <input
-                type="text"
-                name="new-worker-lastname"
-                id="new-worker-lastname"
-                required
-            />
-        </form>
-        <form>
-            <label for="new-worker-joinyear">Join Year : &nbsp;&nbsp;</label>
-            <input
-                type="number"
-                name="new-worker-joinyear"
-                id="new-worker-joinyear"
-                required
-            />
-        </form>
-        <br />
-        <!-- <button id="add-worker">Add worker</button> -->
-        <input type="submit" id="add-worker" value="Add worker" />
-        <br />
-        <hr />
-        <div id="form-css">
-            <form>
-                <label for="required-inp">:required</label>
+            <fieldset>
+                <legend>Add New Worker</legend>
+                <label for="new-worker-name"
+                    >Name : &nbsp; &nbsp; &nbsp; &nbsp;</label
+                >
                 <input
                     type="text"
-                    name="required-inp"
-                    id="required-inp"
+                    name="new-worker-name"
+                    id="new-worker-name"
                     required
+                    autocomplete="off"
                 />
-                <input type="submit" value="submit" />
-            </form>
-            <form>
-                <label for="optional-inp">:optional</label>
-                <input type="text" name="optional-inp" id="optional-inp" />
-                <input type="submit" value="submit" />
-            </form>
-            <form>
-                <label for="invalid-inp">&nbsp :invalid</label>
+                <br />
+                <label for="new-worker-lastname">Last Name : </label>
+                <input
+                    type="text"
+                    name="new-worker-lastname"
+                    id="new-worker-lastname"
+                    required
+                    autocomplete="off"
+                />
+                <br />
+                <label for="new-worker-joinyear"
+                    >Join Year : &nbsp;&nbsp;</label
+                >
                 <input
                     type="number"
-                    name="invalid-inp"
-                    id="invalid-inp"
-                    max="10"
-                    min="0"
+                    name="new-worker-joinyear"
+                    id="new-worker-joinyear"
+                    required
+                    autocomplete="off"
                 />
-                <input type="submit" value="submit" />
-            </form>
-        </div>
-
+                <br />
+                <input type="submit" id="add-worker" value="Submit" />
+            </fieldset>
+        </form>
+        <br />
+        <hr />
         <script src="./script.js"></script>
     </body>
 </html>
