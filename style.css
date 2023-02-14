@@ -377,10 +377,10 @@ div[id^="name-saver"] {
 #element-adder {
     display: none;
 }
-#change-class{
+#change-class {
     margin: 0 100px;
 }
-#change-class button{
+#change-class button {
     display: inline;
     margin: 10px;
     width: 450px;
@@ -396,7 +396,7 @@ div[id^="name-saver"] {
     color: purple;
 }
 
-.red-boxes__div{
+.red-boxes__div {
     border: 2px solid blue;
     width: 80vw;
     margin: 20px auto;
@@ -409,31 +409,31 @@ div[id^="name-saver"] {
     grid-auto-rows: auto;
     padding: 6px;
 }
-.red-boxes__box{
+.red-boxes__box {
     margin: 0;
     /* border: 2px solid rgb(91, 0, 0); */
-    background:rgba(255, 0, 0, 0.563);
+    background: rgba(255, 0, 0, 0.563);
     display: flex;
     justify-content: center;
     align-items: center;
     white-space: nowrap;
     overflow: hidden;
     cursor: default;
-    transition: opacity 0.2s, transform 0.2s,background 0.5s;
+    transition: opacity 0.2s, transform 0.2s, background 0.5s;
 }
-.red-boxes__box:hover{
+.red-boxes__box:hover {
     transform: scale(1.03);
     background: rgb(198, 0, 0);
 }
-.red-boxes__btn{
+.red-boxes__btn {
     width: 200px;
     padding: 10px;
 }
-hr{
+hr {
     margin: 40px 0;
 }
 
-#workers-box{
+#workers-box {
     border: 2px solid blue;
     width: 80vw;
     margin: 20px auto;
@@ -444,7 +444,7 @@ hr{
     flex-direction: row;
     border-radius: 10px;
 }
-.worker-info{
+.worker-info {
     width: 100%;
     border: 1px solid red;
     width: 300px;
@@ -456,11 +456,35 @@ hr{
     align-items: center;
     border-radius: 10px;
 }
-.worker-info p{
+.worker-info p {
     margin: 3px;
     font-size: 20px;
     display: block;
 }
-#add-worker{
+#add-worker {
     width: 200px;
+}
+#form-css input{
+    transition: 0.4s;
+}
+#form-css input:nth-child(2) {
+    width: 376px;
+}
+#form-css input:required {
+    background: red;
+}
+#form-css input:optional {
+    background: rgb(255, 221, 0);
+}
+#form-css input:invalid {
+    background: rgb(8, 0, 255);
+}
+#form-css form:nth-child(1) {
+    color: red;
+}
+#form-css form:nth-child(2) {
+    color: rgb(255, 221, 0);
+}
+#form-css form:nth-child(3) {
+    color: rgb(8, 0, 255);
 }

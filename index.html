@@ -257,13 +257,18 @@
         </div>
         <p>Add new Worker:</p>
         <hr />
-        <br>
+        <br />
         <div id="workers-box"></div>
         <form>
             <label for="new-worker-name"
                 >Name : &nbsp; &nbsp; &nbsp; &nbsp;</label
             >
-            <input type="text" name="new-worker-name" id="new-worker-name" />
+            <input
+                type="text"
+                name="new-worker-name"
+                id="new-worker-name"
+                required
+            />
         </form>
         <form>
             <label for="new-worker-lastname">Last Name : </label>
@@ -271,6 +276,7 @@
                 type="text"
                 name="new-worker-lastname"
                 id="new-worker-lastname"
+                required
             />
         </form>
         <form>
@@ -279,12 +285,43 @@
                 type="number"
                 name="new-worker-joinyear"
                 id="new-worker-joinyear"
+                required
             />
         </form>
         <br />
-        <button id="add-worker">Add worker</button>
-        <br>
+        <!-- <button id="add-worker">Add worker</button> -->
+        <input type="submit" id="add-worker" value="Add worker" />
+        <br />
         <hr />
+        <div id="form-css">
+            <form>
+                <label for="required-inp">:required</label>
+                <input
+                    type="text"
+                    name="required-inp"
+                    id="required-inp"
+                    required
+                />
+                <input type="submit" value="submit" />
+            </form>
+            <form>
+                <label for="optional-inp">:optional</label>
+                <input type="text" name="optional-inp" id="optional-inp" />
+                <input type="submit" value="submit" />
+            </form>
+            <form>
+                <label for="invalid-inp">&nbsp :invalid</label>
+                <input
+                    type="number"
+                    name="invalid-inp"
+                    id="invalid-inp"
+                    max="10"
+                    min="0"
+                />
+                <input type="submit" value="submit" />
+            </form>
+        </div>
+
         <script src="./script.js"></script>
     </body>
 </html>
