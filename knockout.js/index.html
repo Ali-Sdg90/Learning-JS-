@@ -85,7 +85,7 @@ function friend(firstName, lastName) {
             <ol data-bind="foreach:newFriend">
                 <li>
                     <span data-bind="text:fullName"></span>
-                    <button data-bind="click:remove" class="remove-btn">
+                    <button data-bind="click:remove" class="remove-btn" title="Remove Friend">
                         X
                     </button>
                 </li>
@@ -137,7 +137,7 @@ function friend(firstName, lastName) {
 
 obj.addFriend = function () {
     obj.newFriend.push(
-        new friend(obj.newFriendName(),obj.newFriendLastName())
+        new friend(obj.newFriendName(), obj.newFriendLastName())
     );
 };</pre
                 >
