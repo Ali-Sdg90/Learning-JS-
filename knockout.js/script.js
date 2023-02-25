@@ -4,6 +4,12 @@ const obj = {
     secCounter: ko.observable(0),
     changeLogArray: ko.observableArray([]),
     changeLogStr: ko.observable(""),
+    newFriend: ko.observableArray([
+        new friend("jesse ", "pinkman"),
+        new friend("walter ", "white"),
+    ]),
+    newFriendLastName: ko.observable(""),
+    newFriendName: ko.observable(""),
 };
 
 setTimeout(() => {
@@ -28,8 +34,24 @@ obj.lastName.subscribe(function (value) {
 
 function changeLog(title, value) {
     obj.changeLogArray.push(value);
-    let tempLog = obj.changeLogArray().join(`<br>${title}:`);
-    obj.changeLogStr(tempLog);
+    obj.changeLogStr(obj.changeLogStr() + `${title} : ${value} <br>`);
 }
+
+function friend(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.fullName = firstName + " " + lastName;
+    this.knowJS = ko.observable(false);
+    this.favLib = ko.observable("");
+    this.remove = function () {
+        obj.newFriend.remove(this);
+    };
+}
+
+obj.addFriend = function () {
+    obj.newFriend.push(
+        new friend(obj.newFriendName(), obj.newFriendLastName())
+    );
+};
 
 ko.applyBindings(obj);

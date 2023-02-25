@@ -49,3 +49,50 @@ input {
     z-index: 2;
     background: rgb(40, 40, 40);
 }
+
+code {
+    background: #333;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 10px;
+}
+pre {
+    font-size: 18px;
+    background: rgb(39, 39, 39);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+.flex-column {
+    flex-direction: column !important;
+}
+
+ol input {
+    width: auto;
+    display: inline-block;
+}
+
+.remove-btn {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    transform: translate(0, -6px);
+}
+
+fieldset {
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    border-radius: 5px;
+    background: #333;
+}
+
+fieldset input:last-child {
+    margin-top: 20px;
+}
+
+li {
+    line-height: 50px;
+}

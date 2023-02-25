@@ -24,8 +24,126 @@
             Change Log : <span data-bind="html:changeLogStr"></span>
             <div class="info">ko.observableArray([])</div>
         </div>
-        <br />
+        <div class="flex-column">
+            <ol data-bind="foreach:newFriend">
+                <li>
+                    <span data-bind="text:fullName"></span>
+                </li>
+            </ol>
+            <code
+                >HTML:
+                <pre>
+&lt;ol data-bind="foreach:newFriend"&gt;
+    &lt;li&gt;
+        &lt;span data-bind="text:fullName"&gt;&lt;/span&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;</pre
+                >
+            </code>
+            <code
+                >JavaScript:
+                <pre>
+const obj = {
+    newFriend: ko.observableArray([
+        new friend("jesse ", "pinkman"),
+        new friend("walter ", "white"),
+    ]),
+};
 
+function friend(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.fullName = firstName + " " + lastName;
+}</pre
+                >
+            </code>
+            <div class="info">data-bind="foreach: ... "</div>
+        </div>
+
+        <div class="flex-column">
+            <ol data-bind="foreach:newFriend">
+                <li>
+                    <span data-bind="text:fullName"></span>
+                    <input type="checkbox" data-bind="checked:knowJS" />
+                    <input
+                        type="text"
+                        data-bind="value:favLib, visible:knowJS"
+                    />
+                </li>
+            </ol>
+            <code
+                >HTML:
+                <pre>
+&lt;input type="checkbox" data-bind="checked:knowJS" /&gt;
+&lt;input type="text" data-bind="value:favLib, visible:knowJS"/&gt;</pre
+                >
+            </code>
+            <div class="info">data-bind="visible: ... "</div>
+        </div>
+
+        <div class="flex-column">
+            <ol data-bind="foreach:newFriend">
+                <li>
+                    <span data-bind="text:fullName"></span>
+                    <button data-bind="click:remove" class="remove-btn">
+                        X
+                    </button>
+                </li>
+            </ol>
+            <form>
+                <fieldset>
+                    <legend>Add New Friend</legend>
+                    <label for="friend-name">First Name :</label>
+                    <input
+                        type="text"
+                        name="friend-name"
+                        id="friend-name"
+                        data-bind="value:newFriendName"
+                        autocomplete="off"
+                        required
+                    />
+                    <br />
+                    <label for="friend-lastname">Last Name :</label>
+                    <input
+                        type="text"
+                        name="friend-lastname"
+                        id="friend-lastname"
+                        data-bind="value:newFriendLastName"
+                        autocomplete="off"
+                        required
+                    />
+                    <br />
+                    <input type="submit" data-bind="click:addFriend" />
+                </fieldset>
+            </form>
+
+            <code
+                >HTML:
+                <pre>
+&lt;button data-bind="click:remove" class="remove-btn">X&lt;/button&gt;
+&lt;input type="text" data-bind="value:newFriendLastName"/&gt;
+&lt;input type="submit" data-bind="click:addFriend" /&gt;</pre
+                >
+            </code>
+
+            <code
+                >JavaScript:
+                <pre>
+function friend(firstName, lastName) {
+    this.remove = function () {
+        obj.newFriend.remove(this);
+    };
+}
+
+obj.addFriend = function () {
+    obj.newFriend.push(
+        new friend(obj.newFriendName(),obj.newFriendLastName())
+    );
+};</pre
+                >
+            </code>
+            <div class="info">data-bind="click: ... "</div>
+        </div>
         <script src="./knockout-3.5.1.js"></script>
         <script src="script.js"></script>
     </body>
