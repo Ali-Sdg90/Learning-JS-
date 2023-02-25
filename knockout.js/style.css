@@ -1,8 +1,51 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-size: 30px;
 }
-body:foc{
+body {
     background: #333;
+    color: white;
+    margin: 10px;
+}
+div {
+    background: rgb(75, 75, 75);
+    margin: 15px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    position: relative;
+}
+span {
+    background: #333;
+    padding: 5px;
+    margin: 5px;
+    z-index: 2;
+}
+input {
+    margin: 5px;
+    text-align: center;
+    width: 200px;
+}
+
+.info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    font-family: sans-serif;
+    background: #333;
+    transition: transform 0.5s 1.5s, color 0.3s, z-index 5s,
+        background 0.3s 1.5s;
+    z-index: 1;
+}
+.info:hover {
+    transition: transform 0.3s 0s;
+    transform: scale(1.09);
+    color: gold;
+    z-index: 2;
+    background: rgb(40, 40, 40);
 }

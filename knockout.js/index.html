@@ -8,8 +8,23 @@
         <title>Knockout JS</title>
     </head>
     <body>
-        <h1>My Name : <input data-bind="value:firstName" /></h1>
-        <h1>My Name : <span data-bind="text:firstName"></span></h1>
+        <div>firstName : <input data-bind="value:firstName" /></div>
+        <div>
+            firstName : <span data-bind="text:firstName"></span>
+            <div class="info">ko.observable()</div>
+        </div>
+        <div>lastName : <input data-bind="value:lastName" /></div>
+        <div>lastName : <span data-bind="text:lastName"></span></div>
+        <div>
+            fullName : <span data-bind="text:fullName"></span>
+            <div class="info">ko.computed()</div>
+        </div>
+        <div>secCounter : <span data-bind="text:secCounter"></span>s</div>
+        <div>
+            Change Log : <span data-bind="html:changeLogStr"></span>
+            <div class="info">ko.observableArray([])</div>
+        </div>
+        <br />
 
         <script src="./knockout-3.5.1.js"></script>
         <script src="script.js"></script>
