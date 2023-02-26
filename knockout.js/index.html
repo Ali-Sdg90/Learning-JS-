@@ -85,7 +85,11 @@ function friend(firstName, lastName) {
             <ol data-bind="foreach:newFriend">
                 <li>
                     <span data-bind="text:fullName"></span>
-                    <button data-bind="click:remove" class="remove-btn" title="Remove Friend">
+                    <button
+                        data-bind="click:remove"
+                        class="remove-btn"
+                        title="Remove Friend"
+                    >
                         X
                     </button>
                 </li>
@@ -143,6 +147,83 @@ obj.addFriend = function () {
                 >
             </code>
             <div class="info">data-bind="click: ... "</div>
+        </div>
+        <div class="flex-column">
+            <p>
+                Number of Friends :
+                <span data-bind="text:newFriend().length"></span>/5
+            </p>
+            <br />
+            <ol data-bind="foreach:newFriend">
+                <li>
+                    <span data-bind="text:fullName"></span>
+                    <button
+                        data-bind="click:remove"
+                        class="remove-btn"
+                        title="Remove Friend"
+                    >
+                        X
+                    </button>
+                </li>
+            </ol>
+            <form>
+                <fieldset>
+                    <legend>Add New Friend</legend>
+                    <label for="friend-name">First Name :</label>
+                    <input
+                        type="text"
+                        name="friend-name"
+                        id="friend-name"
+                        data-bind="value:newFriendName"
+                        autocomplete="off"
+                        required
+                    />
+                    <br />
+                    <label for="friend-lastname">Last Name :</label>
+                    <input
+                        type="text"
+                        name="friend-lastname"
+                        id="friend-lastname"
+                        data-bind="value:newFriendLastName"
+                        autocomplete="off"
+                        required
+                    />
+                    <br />
+                    <input
+                        type="submit"
+                        data-bind="click:addFriend, enable:newFriend().length < 5"
+                    />
+                </fieldset>
+            </form>
+
+            <code
+                >HTML:
+                <pre>
+&lt;p&gt;
+    Number Of Friends :
+    &lt;span data-bind="text:newFriend().length"&gt;&lt;/span&gt;/5
+&lt;/p&gt;
+
+&lt;input
+    type="submit"
+    data-bind="click:addFriend, enable:newFriend().length &lt; 5"
+/&gt;</pre
+                >
+            </code>
+
+            <div class="info">data-bind="enable:newFriend().length &lt; 5"</div>
+        </div>
+        <div class="flex-column">
+            <h2>Good Enough :)</h2>
+            <br />
+            <a
+                href="https://youtube.com/playlist?list=PLzpzty4VRTPfbao0m8oADCmBD5BmWM4rT"
+                target="_blank"
+                title="Knockout.js Tutorial"
+                >Knockout.js Tutorials</a
+            >
+            <br />
+            <p>Good Luck...</p>
         </div>
         <script src="./knockout-3.5.1.js"></script>
         <script src="script.js"></script>
