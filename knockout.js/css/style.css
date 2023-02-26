@@ -1,0 +1,134 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 30px;
+}
+
+body {
+  background: #333;
+  color: white;
+  margin: 10px;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(75, 75, 75);
+  margin: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+span {
+  background: #333;
+  padding: 6px;
+  margin: 5px;
+  z-index: 2;
+  border-radius: 3px;
+}
+
+input {
+  margin: 5px;
+  text-align: center;
+  width: 200px;
+}
+
+.info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+  font-family: sans-serif;
+  background: #333;
+  transition: transform 0.5s 1.5s, color 0.3s, z-index 5s, background 0.3s 1.5s;
+  z-index: 1;
+}
+.info:hover {
+  transition: transform 0.3s 0s;
+  transform: scale(1.09);
+  color: gold;
+  z-index: 2;
+  background: rgb(40, 40, 40);
+}
+
+code {
+  background: #333;
+  display: block;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin: 10px;
+}
+
+pre {
+  font-size: 18px;
+  background: rgb(39, 39, 39);
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.flex-column {
+  flex-direction: column !important;
+  padding: 30px 10px;
+}
+
+ol input {
+  width: auto;
+  display: inline-block;
+}
+
+.remove-btn {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  transform: translate(0, -6px);
+}
+
+fieldset {
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  border-radius: 5px;
+  background: #333;
+}
+fieldset input:last-child {
+  margin-top: 20px;
+}
+
+li {
+  line-height: 50px;
+}
+
+::-webkit-scrollbar {
+  width: 18px;
+  background: #333;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(219, 219, 219);
+  border-radius: 10px;
+  outline: 5px solid #333;
+  outline-offset: -4px;
+  box-shadow: inset 0 0 6px #333;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 255, 255);
+  outline-offset: -3.7px;
+  outline-width: 4px;
+}
+
+a {
+  padding: 8px;
+  border-radius: 5px;
+  background: #333;
+  text-decoration: none;
+  color: white;
+}
+
+strong {
+  color: white;
+  font-size: 18px;
+}/*# sourceMappingURL=style.css.map */

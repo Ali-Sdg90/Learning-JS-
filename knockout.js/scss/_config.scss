@@ -1,0 +1,19 @@
+// Color Variables :
+$dark-gray: #333;
+$light-gray: rgb(75, 75, 75);
+$text-color: white;
+$info-hover-color: gold;
+$strong-color: rgba(255, 41, 41, 0.605);
+$pre-background: rgb(39, 39, 39);
+$thumb-color: rgb(219, 219, 219);
+$thumb-color-hover: rgb(255, 255, 255);
+
+// Font Variables :
+$base-font-size: 30px;
+
+// mixin :
+@mixin center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,31 +1,35 @@
+@import "config";
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-size: 30px;
+    font-size: $base-font-size;
 }
+
 body {
-    background: #333;
-    color: white;
+    background: $dark-gray;
+    color: $text-color;
     margin: 10px;
 }
+
 div {
-    background: rgb(75, 75, 75);
+    @include center-flex;
+    background: $light-gray;
     margin: 15px;
     padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 5px;
     position: relative;
 }
+
 span {
-    background: #333;
+    background: $dark-gray;
     padding: 6px;
     margin: 5px;
     z-index: 2;
     border-radius: 3px;
 }
+
 input {
     margin: 5px;
     text-align: center;
@@ -38,34 +42,37 @@ input {
     right: 0;
     font-size: 20px;
     font-family: sans-serif;
-    background: #333;
+    background: $dark-gray;
     transition: transform 0.5s 1.5s, color 0.3s, z-index 5s,
         background 0.3s 1.5s;
     z-index: 1;
-}
-.info:hover {
-    transition: transform 0.3s 0s;
-    transform: scale(1.09);
-    color: gold;
-    z-index: 2;
-    background: rgb(40, 40, 40);
+
+    &:hover {
+        transition: transform 0.3s 0s;
+        transform: scale(1.09);
+        color: gold;
+        z-index: 2;
+        background: rgb(40, 40, 40);
+    }
 }
 
 code {
-    background: #333;
+    background: $dark-gray;
     display: block;
     padding: 10px;
     border-radius: 10px;
     font-size: 20px;
     margin: 10px;
 }
+
 pre {
     font-size: 18px;
-    background: rgb(39, 39, 39);
+    background: $pre-background;
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
 }
+
 .flex-column {
     flex-direction: column !important;
     padding: 30px 10px;
@@ -88,11 +95,11 @@ fieldset {
     margin: 20px;
     text-align: center;
     border-radius: 5px;
-    background: #333;
-}
+    background: $dark-gray;
 
-fieldset input:last-child {
-    margin-top: 20px;
+    & input:last-child {
+        margin-top: 20px;
+    }
 }
 
 li {
@@ -101,35 +108,32 @@ li {
 
 ::-webkit-scrollbar {
     width: 18px;
-}
+    background: $dark-gray;
 
-::-webkit-scrollbar {
-    background: #333;
-}
+    &-thumb {
+        background: rgb(219, 219, 219);
+        border-radius: 10px;
+        outline: 5px solid $dark-gray;
+        outline-offset: -4px;
+        box-shadow: inset 0 0 6px $dark-gray;
 
-::-webkit-scrollbar-thumb {
-    background: rgb(219, 219, 219);
-    border-radius: 10px;
-    outline: 5px solid #333;
-    outline-offset: -4px;
-    box-shadow: inset 0 0 6px #333;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgb(255, 255, 255);
-    outline-offset: -3.7px;
-    outline-width: 4px;
+        &:hover {
+            background: rgb(255, 255, 255);
+            outline-offset: -3.7px;
+            outline-width: 4px;
+        }
+    }
 }
 
 a {
     padding: 8px;
     border-radius: 5px;
-    background: #333;
+    background: $dark-gray;
     text-decoration: none;
-    color: white;
+    color: $text-color;
 }
 
-strong{
-    color: rgba(255, 41, 41, 0.605);
+strong {
+    color: $text-color;
     font-size: 18px;
 }

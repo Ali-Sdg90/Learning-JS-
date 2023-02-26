@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="css/style.css" />
         <title>Knockout JS</title>
     </head>
     <body>
@@ -54,8 +54,7 @@ const obj = {
     this.firstName = firstName;
     this.lastName = lastName;
     this.fullName = firstName + " " + lastName;
-}</pre
-                >
+}</pre>
             </code>
             <div class="info">data-bind="foreach: ... "</div>
         </div>
@@ -75,8 +74,7 @@ const obj = {
                 >HTML:
                 <pre>
 &lt;input type="checkbox" data-bind="<strong>checked:</strong>knowJS" /&gt;
-&lt;input type="text" data-bind="value:favLib<strong>, visible:</strong>knowJS"/&gt;</pre
-                >
+&lt;input type="text" data-bind="value:favLib<strong>, visible:</strong>knowJS"/&gt;</pre>
             </code>
             <div class="info">data-bind="visible: ... "</div>
         </div>
@@ -143,8 +141,7 @@ obj.addFriend = function () {
     <strong>obj.newFriend.push</strong>(
         new friend(obj.newFriendName(), obj.newFriendLastName())
     );
-};</pre
-                >
+};</pre>
             </code>
             <div class="info">data-bind="click: ... "</div>
         </div>
@@ -207,8 +204,7 @@ obj.addFriend = function () {
 &lt;input
     type="submit"
     data-bind="click:addFriend, <strong>enable:</strong>newFriend()<strong>.length &lt; 5</strong>"
-/&gt;</pre
-                >
+/&gt;</pre>
             </code>
 
             <div class="info">data-bind="enable:newFriend().length &lt; 5"</div>
@@ -225,7 +221,7 @@ obj.addFriend = function () {
             <br />
             <p>Good Luck...</p>
         </div>
-        <script src="./knockout-3.5.1.js"></script>
-        <script src="script.js"></script>
+        <script src="js/knockout-3.5.1.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>
