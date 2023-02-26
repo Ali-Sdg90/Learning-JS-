@@ -128,3 +128,8 @@ a {
     text-decoration: none;
     color: white;
 }
+
+strong{
+    color: rgba(255, 41, 41, 0.605);
+    font-size: 18px;
+}

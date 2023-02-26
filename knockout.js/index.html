@@ -33,7 +33,7 @@
             <code
                 >HTML:
                 <pre>
-&lt;ol data-bind="foreach:newFriend"&gt;
+&lt;ol  data-bind="<strong>foreach:</strong>newFriend"&gt;
     &lt;li&gt;
         &lt;span data-bind="text:fullName"&gt;&lt;/span&gt;
     &lt;/li&gt;
@@ -44,13 +44,13 @@
                 >JavaScript:
                 <pre>
 const obj = {
-    newFriend: ko.observableArray([
+    newFriend: <strong>ko.observableArray</strong>([
         new friend("jesse ", "pinkman"),
         new friend("walter ", "white"),
     ]),
 };
 
-function friend(firstName, lastName) {
+<strong>function friend</strong>(firstName, lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.fullName = firstName + " " + lastName;
@@ -74,8 +74,8 @@ function friend(firstName, lastName) {
             <code
                 >HTML:
                 <pre>
-&lt;input type="checkbox" data-bind="checked:knowJS" /&gt;
-&lt;input type="text" data-bind="value:favLib, visible:knowJS"/&gt;</pre
+&lt;input type="checkbox" data-bind="<strong>checked:</strong>knowJS" /&gt;
+&lt;input type="text" data-bind="value:favLib<strong>, visible:</strong>knowJS"/&gt;</pre
                 >
             </code>
             <div class="info">data-bind="visible: ... "</div>
@@ -124,9 +124,9 @@ function friend(firstName, lastName) {
             <code
                 >HTML:
                 <pre>
-&lt;button data-bind="click:remove" class="remove-btn">X&lt;/button&gt;
+&lt;button data-bind="<strong>click:</strong>remove" class="remove-btn">X&lt;/button&gt;
 &lt;input type="text" data-bind="value:newFriendLastName"/&gt;
-&lt;input type="submit" data-bind="click:addFriend" /&gt;</pre
+&lt;input type="submit" data-bind="<strong>click:</strong>addFriend" /&gt;</pre
                 >
             </code>
 
@@ -134,13 +134,13 @@ function friend(firstName, lastName) {
                 >JavaScript:
                 <pre>
 function friend(firstName, lastName) {
-    this.remove = function () {
+    <strong>this.remove = function () {
         obj.newFriend.remove(this);
-    };
+    };</strong>
 }
 
 obj.addFriend = function () {
-    obj.newFriend.push(
+    <strong>obj.newFriend.push</strong>(
         new friend(obj.newFriendName(), obj.newFriendLastName())
     );
 };</pre
@@ -201,12 +201,12 @@ obj.addFriend = function () {
                 <pre>
 &lt;p&gt;
     Number Of Friends :
-    &lt;span data-bind="text:newFriend().length"&gt;&lt;/span&gt;/5
+    &lt;span data-bind="text:newFriend()<strong>.length</strong>"&gt;&lt;/span&gt;/5
 &lt;/p&gt;
 
 &lt;input
     type="submit"
-    data-bind="click:addFriend, enable:newFriend().length &lt; 5"
+    data-bind="click:addFriend, <strong>enable:</strong>newFriend()<strong>.length &lt; 5</strong>"
 /&gt;</pre
                 >
             </code>
