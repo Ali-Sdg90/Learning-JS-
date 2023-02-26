@@ -1,4 +1,4 @@
-// Color Variables :
+// Color Variables
 $dark-gray: #333;
 $light-gray: rgb(75, 75, 75);
 $text-color: white;
@@ -7,11 +7,19 @@ $strong-color: rgba(255, 41, 41, 0.605);
 $pre-background: rgb(39, 39, 39);
 $thumb-color: rgb(219, 219, 219);
 $thumb-color-hover: rgb(255, 255, 255);
+$h1-outline-color: rgba(0, 0, 0, 0.5);
+$h1-shadow: -2px 0 rgb(255, 0, 0), 2px 0 rgb(98, 0, 255), 0 1.3px rgb(61, 51, 0),
+    0 -1.3px rgb(61, 51, 0), 0 0 10px rgba(0, 0, 0, 0.301);
 
-// Font Variables :
+// Font Variables
 $base-font-size: 30px;
 
-// mixin :
+// z-index Variables
+$z-index-top: 2;
+$z-index-bottom: 1;
+
+// mixin (It is better to put mixins in a separate file named _mixins.scss, but if
+// this is a small project, you could define them in _config.scss for convenience )
 @mixin center-flex {
     display: flex;
     justify-content: center;
