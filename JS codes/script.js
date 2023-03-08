@@ -1558,12 +1558,21 @@ redBoxBtn.addEventListener("click", function () {
 });
 
 const mahsa = new Date("2022-09-16");
-const now = new Date();
-const differenceInTime = now.getTime() - mahsa.getTime();
-const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+const startWebDev = new Date("2022-06-16");
 
-document.getElementById("mahsa-amini").textContent =
-    Math.ceil(differenceInDays);
+function countDown(startDate) {
+    const now = new Date();
+    const differenceInTime = now.getTime() - startDate.getTime();
+    return differenceInTime / (1000 * 3600 * 24);
+}
+
+document.getElementById("mahsa-amini").textContent = Math.ceil(
+    countDown(mahsa)
+);
+
+document.getElementById("start-web-dev").textContent = Math.ceil(
+    countDown(startWebDev)
+);
 
 let workers = 0;
 class Worker {
