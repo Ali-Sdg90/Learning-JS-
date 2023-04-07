@@ -1330,7 +1330,7 @@ let myCar = new firstClass("random car", 2020);
 // for (let i of randomString) console.log(i);
 // for(let i=0;i<randomString.length;i++) console.log(randomString[i])
 const queueOutput = document.getElementById("queue-days");
-const StartQueue = "2022-07-17";
+const StartQueue = "2023-03-16";
 const timeStartQueue = new Date(StartQueue);
 // console.log(timeInQueue)
 const milStartQueue = Date.parse(timeStartQueue);
@@ -1558,7 +1558,7 @@ redBoxBtn.addEventListener("click", function () {
 });
 
 const mahsa = new Date("2022-09-16");
-const startWebDev = new Date("2022-06-16");
+const startWebDev = new Date("2022-07-17");
 
 function countDown(startDate) {
     const now = new Date();
