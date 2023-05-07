@@ -8,6 +8,10 @@
 body {
   background: #333;
   color: white;
+  overflow-x: hidden;
+}
+body div {
+  background: rgb(75, 75, 75);
 }
 
 h1 {
@@ -25,7 +29,6 @@ div {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(75, 75, 75);
   margin: 15px 25px;
   padding: 10px;
   border-radius: 5px;

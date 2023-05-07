@@ -10,6 +10,11 @@
 body {
     background: $dark-gray;
     color: $text-color;
+    overflow-x: hidden;
+
+    div {
+        background: $light-gray;
+    }
 }
 
 h1 {
@@ -23,7 +28,6 @@ h1 {
 
 div {
     @include center-flex;
-    background: $light-gray;
     margin: 15px 25px;
     padding: 10px;
     border-radius: 5px;
