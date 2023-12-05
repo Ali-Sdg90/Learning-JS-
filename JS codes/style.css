@@ -465,3 +465,16 @@ hr {
 #add-worker {
     width: 200px;
 }
+
+.pre-section {
+    text-align: left;
+    font-size: 8px;
+    margin: 0 50px;
+    background-color: #111;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.code-section {
+    font-size: 16px;
+}

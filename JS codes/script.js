@@ -1640,3 +1640,55 @@ document.getElementById("add-worker").addEventListener("click", function () {
         newWorkerJoinYear.value = "";
     }
 });
+
+const AlohaObj = {
+    key1: {
+        hello: "hi",
+        bye: "ciao",
+    },
+    key2: {
+        age: "22",
+        date: "1402/09/14",
+    },
+    key3: {
+        wow: "yes today is my birthday!",
+    },
+};
+
+const keys = Object.keys(AlohaObj);
+
+// console.log(keys);
+
+// for (let key in keys) {
+//     console.log(AlohaObj[keys[key]]);
+// }
+
+AlohaObj[keys[1]].age = 21;
+
+const copy1OfAlohaObj = AlohaObj; // shallow copy of object
+const copy2OfAlohaObj = { ...AlohaObj }; // shallow copy of object
+const copy3OfAlohaObj = JSON.parse(JSON.stringify(AlohaObj)); // deep copy of object
+
+copy1OfAlohaObj[keys[1]].age = 80;
+
+// console.log(copy1OfAlohaObj[keys[1]].age); // 80
+// console.log(copy2OfAlohaObj[keys[1]].age); // 80
+// console.log(copy3OfAlohaObj[keys[1]].age); // 21
+
+const AlohaArray = [1, 2, 3, 4, 5]; // 1D Array
+
+const copy1OfAlohaArray = [...AlohaArray]; // Behave as deep copy (but it isn't!)
+
+AlohaArray[0] = 0;
+
+// console.log(copy1OfAlohaArray[0], AlohaArray[0]); // 1 0
+
+// --------------------------------------------
+
+const Aloha2Array = [1, [2, 3], 4, 5, 6]; // 2D Array
+
+const copy2OfAlohaArray = [...Aloha2Array]; // Behave as shallow copy in deeper levels!
+
+Aloha2Array[1][0] = 10;
+
+// console.log(copy2OfAlohaArray[1][0], Aloha2Array[1][0]); // 10 10
