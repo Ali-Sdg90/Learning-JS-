@@ -1692,3 +1692,30 @@ const copy2OfAlohaArray = [...Aloha2Array]; // Behave as shallow copy in deeper 
 Aloha2Array[1][0] = 10;
 
 // console.log(copy2OfAlohaArray[1][0], Aloha2Array[1][0]); // 10 10
+
+const myNumbers = [1, 2, 3, 4, 5, 6];
+
+// const hi = myNumbers.forEach((myNumber) => {
+//     console.log(myNumber);
+// });
+
+// console.log(hi);
+
+// const hi = myNumbers.map((myNumber) => {
+//     console.log(myNumber);
+//     return myNumber * 2;
+// });
+
+// console.log(hi);
+
+const hi1 = myNumbers.filter((myNumber) => {
+    return myNumber % 2 === 0;
+});
+
+// console.log(hi1);
+
+const hi2 = myNumbers.find((myNumber) => {
+    return myNumber % 2 === 0;
+});
+
+// console.log(hi2);
