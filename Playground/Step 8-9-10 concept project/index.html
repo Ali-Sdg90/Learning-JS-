@@ -37,8 +37,12 @@
                     "longitude: " + e.latlng.lng
                 );
 
+                console.log(
+                    `https://api.open-meteo.com/v1/forecast?latitude=${e.latlng.lat}&longitude=${e.latlng.lng}&hourly=temperature_2m`
+                );
+
                 fetch(
-                    `https://api.open-meteo.com/v1/forecast?latitude=24.837888&longitude=-30.091675&hourly=temperature_2m`
+                    `https://api.open-meteo.com/v1/forecast?latitude=${e.latlng.lat}&longitude=${e.latlng.lng}&hourly=temperature_2m`
                 )
                     .then((response) => response.json())
                     .then((data) => console.log(data));
