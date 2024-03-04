@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Leaflet Map Click Example</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            #map {
+                height: 100vh;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script>
+            var map = L.map("map").setView([35.696357, 51.384945], 11);
+
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                maxZoom: 18,
+                attribution: "Ali Sadeghi 1402-12-14",
+            }).addTo(map);
+
+            function onMapClick(e) {
+                console.log(
+                    "latitude: " + e.latlng.lat,
+                    "longitude: " + e.latlng.lng
+                );
+
+                fetch(
+                    `https://api.open-meteo.com/v1/forecast?latitude=24.837888&longitude=-30.091675&hourly=temperature_2m`
+                )
+                    .then((response) => response.json())
+                    .then((data) => console.log(data));
+            }
+
+            map.on("click", onMapClick);
+        </script>
+    </body>
+</html>

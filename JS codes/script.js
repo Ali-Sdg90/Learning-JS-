@@ -1719,3 +1719,9 @@ const hi2 = myNumbers.find((myNumber) => {
 });
 
 // console.log(hi2);
+
+fetch(
+    "https://api.open-meteo.com/v1/forecast?latitude=24.837888&longitude=-30.091675&hourly=temperature_2m"
+)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
