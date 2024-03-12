@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Chart.js Bar Chart with Values on Top</title>
+        <title>Chart.js Example</title>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- Include Chart.js library -->
         <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
@@ -17,8 +17,40 @@
             // Register the Datalabels plugin globally
             Chart.register(ChartDataLabels);
 
-            var ctx = document.getElementById("myChart").getContext("2d");
-            var myChart = new Chart(ctx, {
+            // Custom plugin to draw text
+            const customTextPlugin = {
+                id: "customTextPlugin",
+                beforeDraw: (chart) => {
+                    const ctx = chart.ctx;
+                    const padding = 50; // Define padding for the custom text
+                    ctx.save();
+
+                    // Top text
+                    ctx.font = "16px Arial";
+                    ctx.textAlign = "center";
+                    ctx.fillText("Top Text", chart.width / 2, padding / 2);
+
+                    // Left text (with rotation)
+                    ctx.translate(padding / 2, chart.height / 2);
+                    ctx.rotate(-Math.PI / 2);
+                    ctx.fillText("Left Text", 0, 0);
+
+                    // Bottom text
+                    ctx.rotate(Math.PI / 2); // Reset rotation
+                    ctx.translate(-padding / 2, -chart.height / 2); // Reset translation
+                    ctx.textAlign = "center";
+                    ctx.fillText(
+                        "Bottom Text",
+                        chart.width / 2,
+                        chart.height - padding / 2
+                    );
+
+                    ctx.restore();
+                },
+            };
+
+            const ctx = document.getElementById("myChart").getContext("2d");
+            const myChart = new Chart(ctx, {
                 type: "bar",
                 data: {
                     labels: [
@@ -31,7 +63,7 @@
                     ],
                     datasets: [
                         {
-                            label: "# of Votes",
+                            label: "Ali Sadeghi",
                             data: [12, 19, 3, 5, 2, 3],
                             backgroundColor: [
                                 "rgba(255, 99, 132, 0.2)",
@@ -54,6 +86,14 @@
                     ],
                 },
                 options: {
+                    layout: {
+                        padding: {
+                            top: 50,
+                            right: 50,
+                            bottom: 50,
+                            left: 50,
+                        },
+                    },
                     scales: {
                         yAxes: [
                             {
@@ -75,6 +115,7 @@
                         },
                     },
                 },
+                plugins: [customTextPlugin], // Register the custom plugin
             });
         </script>
     </body>
