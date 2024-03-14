@@ -32,4 +32,4 @@ const updateColors = () => {
     aloha.style.color = `rgb(${r[0] / 2}, ${g[0] / 2}, ${b[0] / 2})`;
 };
 
-setInterval(updateColors, 50);
+setInterval(updateColors, 20);
