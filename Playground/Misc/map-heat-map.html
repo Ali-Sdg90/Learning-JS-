@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #222;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            #chartdiv {
+                background-color: #c1e5f5;
+                width: 80%;
+                height: 500px;
+                box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.223);
+            }
+        </style>
+
+        <div id="chartdiv"></div>
+
+        <!-- Resources -->
+        <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+        <!-- Chart code -->
+        <script>
+            am5.ready(function () {
+                // Create root element
+                // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                var root = am5.Root.new("chartdiv");
+
+                // Set themes
+                // https://www.amcharts.com/docs/v5/concepts/themes/
+                root.setThemes([am5themes_Animated.new(root)]);
+
+                // Create the map chart
+                // https://www.amcharts.com/docs/v5/charts/map-chart/
+                // setting rotationX to -154.8 makes the map Pacific-centered
+                var chart = root.container.children.push(
+                    am5map.MapChart.new(root, {
+                        panX: "none",
+                        panY: "none",
+                        // projection: am5map.geoNaturalEarth1(),
+                        projection: am5map.geoEquirectangular(),
+                        rotationX: 0,
+                        maxZoomLevel: 1, // Disable zooming
+                        homeZoomLevel: 1, // Set initial zoom level to 1 (no zoom)
+                    })
+                );
+
+                // Create main polygon series for countries
+                // https://www.amcharts.com/docs/v5/charts/map-chart/map-polygon-series/
+                var polygonSeries = chart.series.push(
+                    am5map.MapPolygonSeries.new(root, {
+                        geoJSON: am5geodata_worldLow,
+                    })
+                );
+
+                polygonSeries.mapPolygons.template.setAll({
+                    tooltipText: "{name}",
+                    fillOpacity: 0.8,
+                });
+
+                var colorSet = am5.ColorSet.new(root, {});
+
+                // var i = 0;
+                // polygonSeries.mapPolygons.template.adapters.add(
+                //     "fill",
+                //     function (fill, target) {
+                //         if (i < 10) {
+                //             i++;
+                //         } else {
+                //             i = 0;
+                //         }
+                //         var dataContext = target.dataItem.dataContext;
+                //         if (!dataContext.colorWasSet) {
+                //             dataContext.colorWasSet = true;
+                //             var color = am5.Color.saturate(colorSet.getIndex(i), 0.3);
+                //             target.setRaw("fill", color);
+                //             return color;
+                //         } else {
+                //             return fill;
+                //         }
+                //     }
+                // );
+
+                polygonSeries.mapPolygons.template.adapters.add(
+                    "fill",
+                    function (fill, target) {
+                        var dataContext = target.dataItem.dataContext;
+                        switch (dataContext.id) {
+                            case "US": // United States
+                                return am5.color(0xff0000); // Red
+                            case "CA": // Canada
+                                return am5.color(0x0000ff); // Blue
+                            case "IR": // Iran
+                                return am5.color(0xffff00); // Yellow
+                            default:
+                                return am5.color(0xffffff); // White for other countries
+                        }
+                    }
+                );
+
+                polygonSeries.mapPolygons.template.states.create("hover", {
+                    fillOpacity: 1,
+                });
+
+                var graticuleSeries = chart.series.push(
+                    am5map.GraticuleSeries.new(root, {})
+                );
+                graticuleSeries.mapLines.template.setAll({
+                    stroke: root.interfaceColors.get("alternativeBackground"),
+                    strokeOpacity: 0.1,
+                });
+
+                // Make stuff animate on load
+                chart.appear(1000, 100);
+            }); // end am5.ready()
+        </script>
+    </body>
+</html>
