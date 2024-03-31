@@ -17,10 +17,11 @@
             body {
                 background-color: #e0f0ff;
                 display: flex;
-                flex-flow: row nowrap;
+                flex-flow: column nowrap;
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
+                gap: 40px;
             }
 
             #mainContent {
@@ -70,12 +71,13 @@
             }
         </style>
 
+        <h1>Top 5 Immigrant Birth Places</h1>
         <div id="mainContent">
             <div id="chartdiv"></div>
             <div id="chartScale">
                 <div class="scale-color"></div>
                 <span class="scale-values">
-                    <div>66725</div>
+                    <div>1895</div>
                     <div>0</div>
                 </span>
             </div>
@@ -87,64 +89,61 @@
         <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
         <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
-        <!-- Chart code -->
         <script>
             const data = {
-                BR: 0.1,
-                CO: 0.2,
-                SV: 0.1,
-                GY: 1.6,
+                BR: 0.4,
+                CO: 0.3,
+                SV: 0.4,
+                GY: 0.6,
                 HT: 0,
-                JM: 1.8,
-                MX: 0.1,
-                PE: 0.2,
-                TT: 0.8,
-                US: 1,
-                BA: 0,
+                JM: 0.5,
+                MX: 0.4,
+                PE: 0,
+                TT: 0.4,
+                US: 1.4,
+                BA: 0.1,
                 HR: 0,
-                FR: 0.1,
-                DE: 0.3,
-                GR: 0.7,
-                HU: 0.2,
-                IT: 1.1,
+                FR: 0,
+                DE: 1,
+                GR: 0.1,
+                HU: 0.6,
+                IT: 2,
                 NL: 0.1,
-                PL: 0.2,
-                PT: 0.1,
-                RO: 0.4,
-                RU: 0.4,
-                RS: 0.1,
-                UA: 0.2,
-                GB: 1.4,
+                PL: 0.5,
+                PT: 0.4,
+                RO: 0.5,
+                RU: 4,
+                RS: 0.7,
+                UA: 1.4,
+                GB: 1.5,
                 DZ: 0,
-                CD: 0.1,
-                EG: 0.7,
+                CD: 0,
+                EG: 0.6,
                 ER: 0,
-                ET: 0.1,
-                MA: 0.1,
-                NG: 0.2,
-                SO: 0.1,
-                ZA: 0.4,
-                AF: 0.5,
-                IR: 3.5,
-                IQ: 0.2,
+                ET: 0,
+                MA: 0.2,
+                NG: 0,
+                SO: 0,
+                ZA: 0.3,
+                AF: 0.4,
+                IR: 27.4,
+                IQ: 0.4,
                 LB: 0.3,
-                SY: 0.2,
-                TR: 0.3,
-                CN: 33.8,
-                HK: 16.4,
-                KR: 1.4,
-                TW: 1,
-                PH: 3.6,
-                VN: 1.8,
-                BD: 0.4,
-                IN: 7.2,
-                PK: 2.7,
-                LK: 6.4,
+                SY: 0.3,
+                TR: 1.2,
+                CN: 10.1,
+                HK: 3.5,
+                KR: 11.6,
+                TW: 0.4,
+                PH: 12.4,
+                VN: 0.7,
+                BD: 0,
+                IN: 1.5,
+                PK: 0.8,
+                LK: 0.7,
             };
 
             am5.ready(function () {
-                // Create root element
-                // https://www.amcharts.com/docs/v5/getting-started/#Root_element
                 var root = am5.Root.new("chartdiv");
                 root.setThemes([am5themes_Animated.new(root)]);
 
@@ -156,7 +155,7 @@
                         projection: am5map.geoEquirectangular(),
                         rotationX: 0,
                         maxZoomLevel: 1, // Disable zooming
-                        homeZoomLevel: 1, // Set initial zoom level to 1 (no zoom)
+                        homeZoomLevel: 1,
                     })
                 );
 
@@ -213,7 +212,7 @@
                     function (fillOpacity, target) {
                         var dataContext = target.dataItem.dataContext;
                         if (data[dataContext.id] !== undefined) {
-                            var opacity = data[dataContext.id] / 0.5; //random value
+                            var opacity = data[dataContext.id] / 2; //random value
                             return opacity;
                         }
                         return fillOpacity;
@@ -229,9 +228,8 @@
                     strokeOpacity: 0.1,
                 });
 
-                // Make stuff animate on load
                 chart.appear(1000, 100);
-            }); // end am5.ready()
+            });
         </script>
     </body>
 </html>
