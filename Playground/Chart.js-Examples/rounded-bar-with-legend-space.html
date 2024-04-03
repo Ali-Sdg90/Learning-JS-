@@ -24,6 +24,24 @@
 
             Chart.register(legendSpacingPlugin);
 
+            const rightAlignLabelsPlugin = {
+                id: "rightAlignLabels",
+                beforeDraw(chart, args, options) {
+                    const ctx = chart.ctx;
+                    const originalTextAlign = ctx.textAlign;
+                    // Override the text alignment
+                    ctx.textAlign = "right";
+                    // Remember to reset the text alignment in the afterDraw hook
+                },
+                afterDraw(chart, args, options) {
+                    const ctx = chart.ctx;
+                    // Reset the text alignment to its original state
+                    ctx.textAlign = "start"; // or 'left', depending on your needs
+                },
+            };
+
+            Chart.register(rightAlignLabelsPlugin);
+
             const config = {
                 type: "bar",
                 data: {
@@ -72,8 +90,12 @@
                     labels: [
                         "Doctorate",
                         "Master’s degree",
-                        "Degree in medicine & dentistry & veterinary...",
-                        "University certificate/Diploma above bachelor",
+                        [
+                            "Degree in medicine",
+                            "dentistry & veterinary",
+                            "dentistry & veterinary 333333333333333333",
+                        ],
+                        ["University certificate", "Diploma above bachelor"],
                         "Bachelor’s degree",
                         "University certificate/Diploma below bachelor",
                         "College certificate/diploma",

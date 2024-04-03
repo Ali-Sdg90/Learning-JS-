@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aloha</title>
+    </head>
+    <body>
+        <style>
+            @media print {
+                button {
+                    display: none;
+                }
+                a::after {
+                    content: "Button Link: " attr(href);
+                    font-size: 30px;
+                    color: black;
+                }
+            }
+        </style>
+        <h1>Print page (win + P)</h1>
+        <a href="https://ali-sdg90.github.io/Firework.ts/" class="pdf-button"
+            ><button>Hello</button></a
+        >
+    </body>
+</html>

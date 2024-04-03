@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Operations Team Sprint O-277 Team</title>
+    </head>
+    <body>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body {
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+                background: url("./w.png") center/cover no-repeat;
+            }
+        </style>
+        <script>
+            document.addEventListener("keydown", (event) => {
+                if (event.key === "p") {
+                    const fireworksContainer = document.createElement("div");
+
+                    fireworksContainer.style.position = "absolute";
+                    fireworksContainer.style.width = "100%";
+                    fireworksContainer.style.height = "100vh";
+                    fireworksContainer.style.top = "0";
+                    fireworksContainer.style.left = "0";
+                    fireworksContainer.style.zIndex = "9999"; // Ensure it's on top of all elements
+                    fireworksContainer.classList.add("fireworks");
+
+                    document.body.appendChild(fireworksContainer);
+
+                    const fireworksScript = document.createElement("script");
+                    fireworksScript.src =
+                        "https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js";
+                    document.body.appendChild(fireworksScript);
+
+                    const fireworksFallbackScript =
+                        document.createElement("script");
+                    fireworksFallbackScript.src =
+                        "https://unpkg.com/fireworks-js@2.x/dist/index.umd.js";
+                    document.body.appendChild(fireworksFallbackScript);
+
+                    fireworksScript.onload = () => {
+                        const container = document.querySelector(".fireworks");
+                        const fireworks = new Fireworks.default(container);
+                        fireworks.start();
+
+                        container.addEventListener("click", () => {
+                            console.log("hi");
+                        });
+                    };
+                }
+                if (event.key === "s") {
+                    const fireworksContainer =
+                        document.querySelector(".fireworks");
+                    if (fireworksContainer) {
+                        console.log("REMOVE");
+                        fireworksContainer.remove();
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
