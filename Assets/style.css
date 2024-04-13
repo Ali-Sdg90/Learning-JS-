@@ -16,6 +16,7 @@ body {
     align-items: center;
     gap: 40px;
     font-size: 40px;
+    transform: scale(0.8) translateY(-60px);
 }
 
 a {
